@@ -1,103 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>Dushanbe</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>API List | Dushanbe</title>
 </head>
 
 <body>
-
-<div class="container-fluid">
-    <h1>Dushanbe Entry</h1>
+    <!---- DRF API Root ---->
+    <h2>Dushanbe APIs</h2>
     <hr>
 
-    <form>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="inputEmail4">Bill Name</label>
-                <input type="text" class="form-control" id="inputEmail4" placeholder="Bill">
-            </div>
-            <div class="form-group col-md-6">
-                <label for="inputPassword4">Topics</label>
-                <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="inputAddress">Materials</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-        </div>
-        <div class="form-group">
-            <label for="inputAddress2">Item Serial Number</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-        </div>
+    {#<li><a href="http://127.0.0.1:8000/api/" target="_blank">click to view DRF API Root</a></li>#}
+    {#<li><a href="http://0.0.0.0:8000/api/" target="_blank">click to view DRF API Root</a></li>#}
+    <li><a href="http://galib04.pythonanywhere.com/api/" target="_blank">click to view DRF API Root</a></li>
+    <br>
 
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="inputCity">Unit</label>
-                <input type="text" class="form-control" id="inputCity">
-            </div>
+    <!---- User Token Info ---->
+    <li><b>User Token Information</b></li>
 
-            <div class="form-group col-md-4">
-                <label for="inputState">Quantity</label>
-                <select id="inputState" class="form-control">
-                    <option selected>Choose...</option>
-                    <option>...</option>
-                </select>
-            </div>
+    <pre>
+        Api Token:
+                {
+                    "Authorization": Token 21278526a33c2da7ef1407b0fa1e71da748b6a4b (<span style="background-color: yellow">token may differ</span>)
+                }
+    </pre>
+    <hr>
 
-            <div class="form-group col-md-2">
-                <label for="inputZip">Progress</label>
-                <input type="text" class="form-control" id="inputZip">
-            </div>
-        </div>
+    <!---- 1. Dushanbe Module ---->
+    <h3 style="text-align: center; color: orangered">1. Dushanbe Module</h3>
+    <hr>
 
-        {#        <div class="form-group">#}
-        {#            <div class="form-check">#}
-        {#                <input class="form-check-input" type="checkbox" id="gridCheck">#}
-        {#                <label class="form-check-label" for="gridCheck">#}
-        {#                    Check me out#}
-        {#                </label>#}
-        {#            </div>#}
-        {#        </div>#}
-        <button type="submit" class="btn btn-lg btn-success">SUBMIT</button>
-    </form>
-</div>
+        <!---- Bill ---->
+        <li><b>Bill</b></li>
+        <br>
+        <hr>
 
+        <p>13. Bill Create (POST): <a href="#">http://galib04.pythonanywhere.com/api/bills/</a></p>
+        <pre>
+            Api Body:
+                    {
+                        "bill_name": "Bill_1",
+                        "topic_name": "Topic_1",
+                        "material_name": "Material_1",
+                        "item_serial_no": "#1234",
+                        "unit": "m",
+                        "quantity": 5.00,
+                        "submission_date": "2021-02-01",
+                        "work_progress": 10
+                    }
+        </pre>
+        <hr>
 
-{#    <form action="http://0.0.0.0:8000/api/bills/" method="POST">#}
-{#        <div>#}
-{#            <label for="say">Bill Name</label><br><br>#}
-{#            <input name="say" id="say" value="Hi">#}
-{#        </div>#}
-{#        <br>#}
-{##}
-{#        <div>#}
-{#            <label for="to">Topics</label><br><br>#}
-{#            <input name="to" id="to" value="Mom">#}
-{#        </div>#}
-{#        <br>#}
-{##}
-{#        <div>#}
-{#            <label for="to">Materials</label><br><br>#}
-{#            <input name="to" id="to" value="Mom">#}
-{#        </div>#}
-{#        <br>#}
-{##}
-{#        <div>#}
-{#            <label for="to">Work Progress</label><br><br>#}
-{#            <input name="to" id="to" value="Mom">#}
-{#        </div>#}
-{#        <br>#}
-{##}
-{#        <div>#}
-{#            <button type="submit">SUBMIT</button>#}
-{#        </div>#}
-{#    </form>#}
+        <p>14. Bill List (GET):
+            <a href="http://galib04.pythonanywhere.com/api/bills/" target="_blank">http://galib04.pythonanywhere.com/api/bills/</a>
+        </p>
+        <hr>
+
+        <p>15. Bill Retrieve (GET):
+            <a href="http://galib04.pythonanywhere.com/api/bills/1/" target="_blank">http://galib04.pythonanywhere.com/api/bills/1/</a>
+        </p>
+        <hr>
+
+        <p>16. Bill Update (PUT): <a href="#">http://galib04.pythonanywhere.com/api/bills/</a></p>
+        <pre>
+            Api Body:
+                    {
+                        "bill_name": "Updated",
+                        "topic_name": "Topic_Updated",
+                        "material_name": "Material_Updated",
+                        "item_serial_no": "#5678",
+                        "unit": "m",
+                        "quantity": 5.00,
+                        "submission_date": "2021-02-01",
+                        "work_progress": 10
+                    }
+        </pre>
+        <hr>
+
+        <p>17. Bill Delete (DELETE):<a href="#">http://galib04.pythonanywhere.com/api/bills/1/</a></p>
+        <hr>
+
+        <p>18. Bill Filter (GET):<a href="http://galib04.pythonanywhere.com/api/bills/?" target="_blank">http://galib04.pythonanywhere.com/api/bills/?</a></p>
+        <hr>
 
 </body>
+
 </html>
 

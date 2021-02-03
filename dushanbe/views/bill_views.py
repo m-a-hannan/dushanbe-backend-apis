@@ -14,16 +14,16 @@ from dushanbe.serializers.bill_serializers import (
 )
 
 
-# Create (POST): http://0.0.0.0:8000/api/bills/
-# List (GET): http://0.0.0.0:8000/api/bills/
-# Retrieve (GET): http://0.0.0.0:8000/api/bills/{id}/
+# Create (POST): http://127.0.0.1:8000/api/bills/
+# List (GET): http://127.0.0.1:8000/api/bills/
+# Retrieve (GET): http://127.0.0.1:8000/api/bills/{id}/
 # Update (PUT): http://127.0.0.1:8000/api/bills/{id}/
 # Delete (DELETE): http://127.0.0.1:8000/api/bills/{id}/
 class BillViewSet(viewsets.ModelViewSet):
     queryset = Bill.objects.all().order_by('bill_name')
     serializer_class = BillListSerializer
     permission_classes = (DjangoModelPermissionsWithGET, )
-    pagination_class = CustomPageNumberPagination
+    pagination_class = None
 
     @transaction.atomic
     def create(self, request, *args, **kwargs):
