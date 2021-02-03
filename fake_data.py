@@ -13,14 +13,30 @@ import random, decimal, string
 from faker import Faker
 fake_data = Faker()
 
-# custom app models
-from dushanbe.models import Bill
+# models
+from django.contrib.auth.models import User
+from dushanbe.models import Bill, Material, NameOfWork
 
 
-unit_choices = ['m', 'kits', 'sum', 'n']
+unit_choices = ['m', 'kits', 'sum', 'n', 'kits', 't', 'nr']
 
 
-# random string generator for project_ID and site_ID
+# 1st, creating the priority object with fake data
+def add_user():
+    user = User.objects.get_or_create(
+        username=fake_data.user_name(),
+        email=fake_data.email(),
+        password=fake_data.password(),
+        first_name=fake_data.first_name(),
+        last_name=fake_data.last_name()
+    )[0]
+    # note: [0] = Usage of get_or_create() method, if priority object already exists then get from first index.
+    # if not, then create the priority object.
+    user.save()
+    return user
+
+
+# random string generator
 def random_string_id(length):
     letters = string.ascii_lowercase
     return ''.join(random.choice(letters) for i in range(length))
@@ -30,24 +46,26 @@ def random_string_id(length):
 def populate(n):
     for entry in range(n):
 
-        # creating objects
-        # topics = Topic.objects.create(
-        #     topic_name=random_string_id(10)
-        # )
+        # 1st, calling priority method for creating priority object first
+        user = add_user()
 
         # creating objects
-        # materials = Material.objects.create(
-        #     material_name=random_string_id(10),
-        #     item_serial_no=random_string_id(6),
-        #     unit=random.choice(unit_choices),
-        #     quantity=decimal.Decimal(random.randrange(155, 389))/100,
-        # )
-
-        # creating objects]
-        Bill.objects.create(
+        bill = Bill.objects.create(
             bill_name=random_string_id(10),
-            topic_name=random_string_id(10),
-            material_name=random_string_id(10),
+            created_by=user,
+            created_datetime=random_string_id(10),
+        )
+
+        # creating objects
+        material = Material.objects.create(
+            material_name=random_string_id(10)
+        )
+
+        # creating objects
+        NameOfWork.objects.create(
+            work_name=random_string_id(10),
+            bill=bill,
+            material=material,
             item_serial_no=random_string_id(6),
             unit=random.choice(unit_choices),
             quantity=decimal.Decimal(random.randrange(155, 389)) / 100,
@@ -60,6 +78,6 @@ def populate(n):
 if __name__ == '__main__':
     print("** Populating the Database, Please Wait...")
     populate(10)
-    print('** Populating Complete!')
+    print('** Populating Complete **')
 
 
