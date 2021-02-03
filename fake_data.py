@@ -15,7 +15,7 @@ fake_data = Faker()
 
 # models
 from django.contrib.auth.models import User
-from dushanbe.models import Bill, Material, NameOfWork
+from dushanbe.models import Bill, Material, WorkType, Work
 
 
 unit_choices = ['m', 'kits', 'sum', 'n', 'kits', 't', 'nr']
@@ -62,9 +62,14 @@ def populate(n):
         )
 
         # creating objects
-        NameOfWork.objects.create(
-            work_name=random_string_id(10),
+        work_type = WorkType.objects.create(
+            work_type_name=random_string_id(10)
+        )
+
+        # creating objects
+        Work.objects.create(
             bill=bill,
+            work_type=work_type,
             material=material,
             item_serial_no=random_string_id(6),
             unit=random.choice(unit_choices),

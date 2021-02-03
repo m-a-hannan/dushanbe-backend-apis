@@ -1,13 +1,14 @@
 from django.contrib import admin
-from .models import Bill, Material, NameOfWork
+from .models import Bill, Material, WorkType, Work
 
 
 admin.site.site_header = "Dushanbe Admin"
 
 
-# NameOfWork Inline
-class NameOfWorkInline(admin.StackedInline):
-    model = NameOfWork
+# Work Inline
+# class WorkInline(admin.StackedInline):
+class WorkInline(admin.TabularInline):
+    model = Work
 
 
 # Bill
@@ -17,7 +18,7 @@ class BillAdmin(admin.ModelAdmin):
     list_display_links = ['bill_name']
     list_editable = ['active_status']
     list_filter = ['created_by']
-    inlines = [NameOfWorkInline, ]
+    inlines = [WorkInline, ]
 
 
 # Material
@@ -27,12 +28,22 @@ class MaterialAdmin(admin.ModelAdmin):
     list_display_links = ['material_name']
 
 
-# NameOfWork
-@admin.register(NameOfWork)
-class NameOfWorkAdmin(admin.ModelAdmin):
-    list_display = ['id', 'work_name', 'bill', 'material', 'item_serial_no', 'unit', 'quantity', 'submission_date', 'work_progress']
-    list_display_links = ['work_name']
-    list_filter = ['bill', 'material']
+# WorkType
+@admin.register(WorkType)
+class WorkTypeAdmin(admin.ModelAdmin):
+    list_display = ['id', 'work_type_name']
+    list_display_links = ['work_type_name']
+
+
+# Work
+@admin.register(Work)
+class WorkAdmin(admin.ModelAdmin):
+    list_display = [
+        'id', 'bill', 'work_type', 'material', 'item_serial_no', 'unit', 'quantity',
+        'submission_date', 'work_progress'
+    ]
+    list_display_links = ['bill']
+    list_filter = ['bill', 'work_type', 'material']
 
 
 

@@ -49,10 +49,10 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
 
     # django-filter
-    # 'django_filters',
+    'django_filters',
 
     # for automated shell and others (https://github.com/django-extensions/django-extensions/tree/master/)
-    # 'django_extensions',
+    'django_extensions',
 
     # custom apps
     'dushanbe.apps.DushanbeConfig',

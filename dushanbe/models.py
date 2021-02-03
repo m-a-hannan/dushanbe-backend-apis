@@ -27,10 +27,21 @@ class Material(models.Model):
         return self.material_name
 
 
-# NameOfWork Table
-class NameOfWork(models.Model):
-    work_name = models.CharField(max_length=250, blank=True, null=True)
+# WorkType Table
+class WorkType(models.Model):
+    work_type_name = models.CharField(max_length=250, blank=True, null=True)
+
+    class Meta:
+        verbose_name_plural = 'Work Types'
+
+    def __str__(self):
+        return self.work_type_name
+
+
+# Work Table
+class Work(models.Model):
     bill = models.ForeignKey(Bill, on_delete=models.CASCADE, blank=True, null=True, related_name='nameofwork_bill')
+    work_type = models.ForeignKey(WorkType, on_delete=models.CASCADE, blank=True, null=True, related_name='nameofwork_work_type')
     material = models.ForeignKey(Material, on_delete=models.SET_NULL, null=True, related_name='nameofwork_material')
     item_serial_no = models.CharField(max_length=20, unique=True, blank=True, null=True)
     unit = models.CharField(max_length=10, blank=True, null=True)
@@ -39,10 +50,10 @@ class NameOfWork(models.Model):
     work_progress = models.PositiveIntegerField(default=0, blank=True, null=True)
 
     class Meta:
-        verbose_name_plural = 'Name Of Work'
+        verbose_name_plural = 'Works'
 
     def __str__(self):
-        return self.work_name
+        return self.bill.bill_name
 
 
 

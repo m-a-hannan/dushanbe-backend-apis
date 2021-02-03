@@ -1,7 +1,7 @@
 import inspect
 from django.dispatch import receiver
-from dushanbe.models import Bill, Material, NameOfWork
 from django.db.models.signals import post_save, pre_save
+from dushanbe.models import Bill, Material, WorkType, Work
 from dushanbe.helpers.random_string import random_string_id
 
 
@@ -18,9 +18,9 @@ def assign_request_user_to_created_by(sender, instance, **kwargs):
         request = None
 
 
-# NameOfWork Table
+# Work Table
 # "item_serial_no" generating
-@receiver(pre_save, sender=NameOfWork)
+@receiver(pre_save, sender=Work)
 def generate_issue_id(sender, instance, **kwargs):
     instance.item_serial_no = random_string_id(8)
 
