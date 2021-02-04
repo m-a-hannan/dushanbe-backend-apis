@@ -14,8 +14,8 @@ from faker import Faker
 fake_data = Faker()
 
 # models
-from django.contrib.auth.models import User
-from dushanbe.models import Bill, Material, WorkType, Work
+from django.contrib.auth.models import User, Group
+from dushanbe.models import Bill, Material, Type, BillSubmission
 
 
 unit_choices = ['m', 'kits', 'sum', 'n', 'kits', 't', 'nr']
@@ -50,39 +50,41 @@ def populate(n):
         user = add_user()
 
         # creating objects
+        Group.objects.create(name=random_string_id(4))
+
+        # creating objects
         bill = Bill.objects.create(
-            bill_name=random_string_id(10),
-            created_by=user,
-            created_datetime=random_string_id(10),
+            bill_name=random_string_id(10)
         )
 
         # creating objects
         material = Material.objects.create(
-            material_name=random_string_id(10)
-        )
-
-        # creating objects
-        work_type = WorkType.objects.create(
-            work_type_name=random_string_id(10)
-        )
-
-        # creating objects
-        Work.objects.create(
-            bill=bill,
-            work_type=work_type,
-            material=material,
-            item_serial_no=random_string_id(6),
+            material_name=fake_data.sentence(),
+            serial_no=random.randint(1, 100),
             unit=random.choice(unit_choices),
             quantity=decimal.Decimal(random.randrange(155, 389)) / 100,
+        )
+
+        # creating objects
+        type = Type.objects.create(
+            type_name=random_string_id(10)
+        )
+
+        # creating objects
+        BillSubmission.objects.create(
+            bill=bill,
+            type=type,
+            material=material,
             submission_date=fake_data.date(),
-            work_progress=random.randint(0, 10),
+            work_progress=random.randint(0, 100),
+            created_by=user
         )
 
 
 # calling the populate() method
 if __name__ == '__main__':
     print("** Populating the Database, Please Wait...")
-    populate(10)
+    populate(5)
     print('** Populating Complete **')
 
 

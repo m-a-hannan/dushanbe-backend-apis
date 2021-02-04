@@ -1,49 +1,85 @@
 from django.contrib import admin
-from .models import Bill, Material, WorkType, Work
+from django.contrib.auth.models import User, Group
+from .models import Bill, Material, Type, BillSubmission
 
 
 admin.site.site_header = "Dushanbe Admin"
 
 
-# Work Inline
-# class WorkInline(admin.StackedInline):
-class WorkInline(admin.TabularInline):
-    model = Work
+# User
+admin.site.unregister(User)
+
+@admin.register(User)
+class UserAdmin(admin.ModelAdmin):
+    list_display = [
+        'id', 'username', 'first_name', 'last_name', 'is_active', 'is_staff', 'is_superuser',
+        'groups_list', 'permissions'
+    ]
+    list_display_links = ['username']
+    list_editable = ['is_active', 'is_staff', 'is_superuser']
+    filter_horizontal = ['groups', 'user_permissions']
+    ordering = ['id']
+
+    def groups_list(self, obj):
+        return " | ".join([i.name for i in obj.groups.all()])
+
+    def permissions(self, obj):
+        return " | ".join([i.codename for i in obj.user_permissions.all()])
+
+
+# Group
+admin.site.unregister(Group)
+
+@admin.register(Group)
+class GroupAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'permissions_list']
+    list_display_links = ['name']
+    filter_horizontal = ['permissions']
+    ordering = ['-id']
+
+    def permissions_list(self, obj):
+        return " | ".join([i.codename for i in obj.permissions.all()])
+
+
+# BillSubmission Inline
+# class BillSubmissionInline(admin.StackedInline):
+class BillSubmissionInline(admin.TabularInline):
+    model = BillSubmission
 
 
 # Bill
 @admin.register(Bill)
 class BillAdmin(admin.ModelAdmin):
-    list_display = ['id', 'bill_name', 'created_by', 'created_datetime', 'active_status']
+    list_display = ['id', 'bill_name', 'active_status']
     list_display_links = ['bill_name']
-    list_editable = ['active_status']
-    list_filter = ['created_by']
-    inlines = [WorkInline, ]
+    inlines = [BillSubmissionInline, ]
+    ordering = ['-id']
 
 
 # Material
 @admin.register(Material)
 class MaterialAdmin(admin.ModelAdmin):
-    list_display = ['id', 'material_name']
+    list_display = ['id', 'material_name', 'serial_no', 'unit', 'quantity']
     list_display_links = ['material_name']
+    ordering = ['-id']
 
 
-# WorkType
-@admin.register(WorkType)
-class WorkTypeAdmin(admin.ModelAdmin):
-    list_display = ['id', 'work_type_name']
-    list_display_links = ['work_type_name']
+# Type
+@admin.register(Type)
+class TypeAdmin(admin.ModelAdmin):
+    list_display = ['id', 'type_name']
+    list_display_links = ['type_name']
+    ordering = ['-id']
 
 
-# Work
-@admin.register(Work)
-class WorkAdmin(admin.ModelAdmin):
-    list_display = [
-        'id', 'bill', 'work_type', 'material', 'item_serial_no', 'unit', 'quantity',
-        'submission_date', 'work_progress'
-    ]
+# BillSubmission
+@admin.register(BillSubmission)
+class BillSubmissionAdmin(admin.ModelAdmin):
+    list_display = ['id', 'bill', 'type', 'material', 'submission_date', 'work_progress', 'created_by']
     list_display_links = ['bill']
-    list_filter = ['bill', 'work_type', 'material']
+    list_filter = ['bill', 'type', 'material']
+    ordering = ['-id']
+
 
 
 

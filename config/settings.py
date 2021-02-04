@@ -133,6 +133,7 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Asia/Dhaka'
+# TIME_ZONE = 'Asia/Dushanbe'
 # TIME_ZONE = 'UTC'
 
 USE_I18N = True

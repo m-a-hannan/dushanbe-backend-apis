@@ -3,30 +3,30 @@ from rest_framework import status, viewsets
 from rest_framework.response import Response
 
 # app
-from dushanbe.models import Bill
+from dushanbe.models import BillSubmission
 from dushanbe.paginations.paginations import CustomPageNumberPagination
 from dushanbe.permissions.common_permissions import DjangoModelPermissionsWithGET
-from dushanbe.serializers.bill_serializers import (
-    BillCreateSerializer,
-    BillUpdateSerializer,
-    BillListSerializer
+from dushanbe.serializers.bill_submission_serializers import (
+    BillSubmissionCreateSerializer,
+    BillSubmissionUpdateSerializer,
+    BillSubmissionListSerializer
 )
 
 
-# Create (POST): http://127.0.0.1:8000/api/bills/
-# List (GET): http://127.0.0.1:8000/api/bills/
-# Retrieve (GET): http://127.0.0.1:8000/api/bills/{id}/
-# Update (PUT): http://127.0.0.1:8000/api/bills/{id}/
-# Delete (DELETE): http://127.0.0.1:8000/api/bills/{id}/
-class BillViewSet(viewsets.ModelViewSet):
-    queryset = Bill.objects.all().order_by('-id')
-    serializer_class = BillListSerializer
+# Create (POST): http://0.0.0.0:8000/api/bill-submissions/
+# List (GET): http://0.0.0.0:8000/api/bill-submissions/
+# Delete (DELETE): http://127.0.0.1:8000/api/bill-submissions/{id}/
+# Retrieve (GET): http://0.0.0.0:8000/api/bill-submissions/{id}/
+# Update (PUT): http://127.0.0.1:8000/api/bill-submissions/{id}/
+class BillSubmissionViewSet(viewsets.ModelViewSet):
+    queryset = BillSubmission.objects.all().order_by('-id')
+    serializer_class = BillSubmissionListSerializer
     permission_classes = (DjangoModelPermissionsWithGET, )
     pagination_class = None
 
     @transaction.atomic
     def create(self, request, *args, **kwargs):
-        serializer = BillCreateSerializer(data=request.data)
+        serializer = BillSubmissionCreateSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
@@ -36,7 +36,7 @@ class BillViewSet(viewsets.ModelViewSet):
     def update(self, request, *args, **kwargs):
         partial = kwargs.pop('partial', False)
         instance = self.get_object()
-        serializer = BillUpdateSerializer(instance, data=request.data, partial=partial)
+        serializer = BillSubmissionUpdateSerializer(instance, data=request.data, partial=partial)
         serializer.is_valid(raise_exception=True)
         self.perform_update(serializer)
         return Response(serializer.data, status=status.HTTP_200_OK)
