@@ -41,14 +41,8 @@ class UserSerializer(serializers.ModelSerializer):
 # BillSubmission Create Serializer
 class BillSubmissionCreateSerializer(serializers.ModelSerializer):
     bill = serializers.PrimaryKeyRelatedField(many=False, queryset=Bill.objects.all())
-    # bill = BillSerializer(required=False, read_only=True)
-
     type = serializers.PrimaryKeyRelatedField(many=False, queryset=Type.objects.all())
-    # type = TypeSerializer(required=False, read_only=True)
-
     material = serializers.PrimaryKeyRelatedField(many=False, queryset=Material.objects.all())
-    # material = MaterialSerializer(required=False, read_only=True)
-
     submission_date = serializers.DateField(required=False, format="%Y-%m-%d")
     work_progress = serializers.IntegerField(default=0)
 
@@ -59,15 +53,9 @@ class BillSubmissionCreateSerializer(serializers.ModelSerializer):
 
 # BillSubmission Update Serializer
 class BillSubmissionUpdateSerializer(serializers.ModelSerializer):
-    # bill = serializers.PrimaryKeyRelatedField(many=False, queryset=Bill.objects.all())
-    bill = BillSerializer(required=False, read_only=True)
-
-    # type = serializers.PrimaryKeyRelatedField(many=False, queryset=Type.objects.all())
-    type = TypeSerializer(required=False, read_only=True)
-
-    # material = serializers.PrimaryKeyRelatedField(many=False, queryset=Material.objects.all())
-    material = MaterialSerializer(required=False, read_only=True)
-
+    bill = serializers.PrimaryKeyRelatedField(required=False, many=False, queryset=Bill.objects.all())
+    type = serializers.PrimaryKeyRelatedField(required=False, many=False, queryset=Type.objects.all())
+    material = serializers.PrimaryKeyRelatedField(required=False, many=False, queryset=Material.objects.all())
     submission_date = serializers.DateField(required=False, format="%Y-%m-%d")
     work_progress = serializers.IntegerField(required=False, default=0)
 

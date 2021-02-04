@@ -56,14 +56,6 @@ class BillAdmin(admin.ModelAdmin):
     ordering = ['-id']
 
 
-# Material
-@admin.register(Material)
-class MaterialAdmin(admin.ModelAdmin):
-    list_display = ['id', 'material_name', 'serial_no', 'unit', 'quantity']
-    list_display_links = ['material_name']
-    ordering = ['-id']
-
-
 # Type
 @admin.register(Type)
 class TypeAdmin(admin.ModelAdmin):
@@ -72,13 +64,25 @@ class TypeAdmin(admin.ModelAdmin):
     ordering = ['-id']
 
 
+# Material
+@admin.register(Material)
+class MaterialAdmin(admin.ModelAdmin):
+    list_display = ['id', 'material_name', 'serial_no', 'unit', 'quantity']
+    list_display_links = ['material_name']
+    ordering = ['-id']
+
+
 # BillSubmission
 @admin.register(BillSubmission)
 class BillSubmissionAdmin(admin.ModelAdmin):
-    list_display = ['id', 'bill', 'type', 'material', 'submission_date', 'work_progress', 'created_by']
+    list_display = [
+        'id', 'bill', 'type', 'material', 'serial_no', 'unit', 'quantity', 'submission_date',
+        'work_progress', 'created_by'
+    ]
     list_display_links = ['bill']
-    list_filter = ['bill', 'type', 'material']
+    # list_filter = ['bill', 'type', 'material']
     ordering = ['-id']
+
 
 
 

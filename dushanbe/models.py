@@ -14,6 +14,17 @@ class Bill(models.Model):
         return self.bill_name
 
 
+# Type Table
+class Type(models.Model):
+    type_name = models.CharField(max_length=250, unique=True, blank=True, null=True)
+
+    class Meta:
+        verbose_name_plural = 'Types'
+
+    def __str__(self):
+        return self.type_name
+
+
 # Material Table
 class Material(models.Model):
     material_name = models.TextField(blank=True, null=True)
@@ -26,17 +37,6 @@ class Material(models.Model):
 
     def __str__(self):
         return self.material_name
-
-
-# Type Table
-class Type(models.Model):
-    type_name = models.CharField(max_length=250, unique=True, blank=True, null=True)
-
-    class Meta:
-        verbose_name_plural = 'Types'
-
-    def __str__(self):
-        return self.type_name
 
 
 # BillSubmission Table
@@ -56,4 +56,20 @@ class BillSubmission(models.Model):
     def __str__(self):
         return self.bill.bill_name
 
+    @property
+    def serial_no(self):
+        if self.material.serial_no:
+            return self.material.serial_no
+        return 'empty'
 
+    @property
+    def unit(self):
+        if self.material.unit:
+            return self.material.unit
+        return 'empty'
+
+    @property
+    def quantity(self):
+        if self.material.quantity:
+            return self.material.quantity
+        return 'empty'

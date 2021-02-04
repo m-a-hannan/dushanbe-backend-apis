@@ -18,6 +18,7 @@ from django.contrib.auth.models import User, Group
 from dushanbe.models import Bill, Material, Type, BillSubmission
 
 
+# unit choices for material
 unit_choices = ['m', 'kits', 'sum', 'n', 'kits', 't', 'nr']
 
 
