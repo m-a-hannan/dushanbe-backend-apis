@@ -19,15 +19,6 @@ dushanbe_router = routers.DefaultRouter()
 dushanbe_router.register('bills', BillViewSet)
 
 
-""" Material Routers """
-# Create (POST): http://0.0.0.0:8000/api/materials/
-# List (GET): http://0.0.0.0:8000/api/materials/
-# Retrieve (GET): http://0.0.0.0:8000/api/materials/{id}/
-# Update (PUT): http://127.0.0.1:8000/api/materials/{id}/
-# Delete (DELETE): http://127.0.0.1:8000/api/materials/{id}/
-dushanbe_router.register('materials', MaterialViewSet)
-
-
 """ Type Routers """
 # Create (POST): http://0.0.0.0:8000/api/types/
 # List (GET): http://0.0.0.0:8000/api/types/
@@ -35,6 +26,15 @@ dushanbe_router.register('materials', MaterialViewSet)
 # Update (PUT): http://127.0.0.1:8000/api/types/{id}/
 # Delete (DELETE): http://127.0.0.1:8000/api/types/{id}/
 dushanbe_router.register('types', TypeViewSet)
+
+
+""" Material Routers """
+# Create (POST): http://0.0.0.0:8000/api/materials/
+# List (GET): http://0.0.0.0:8000/api/materials/
+# Retrieve (GET): http://0.0.0.0:8000/api/materials/{id}/
+# Update (PUT): http://127.0.0.1:8000/api/materials/{id}/
+# Delete (DELETE): http://127.0.0.1:8000/api/materials/{id}/
+dushanbe_router.register('materials', MaterialViewSet)
 
 
 # """ Work Routers """
