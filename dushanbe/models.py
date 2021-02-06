@@ -58,18 +58,23 @@ class BillSubmission(models.Model):
 
     @property
     def serial_no(self):
-        if self.material.serial_no:
+        try:
             return self.material.serial_no
-        return 'empty'
+        except:
+            return 'empty'
 
     @property
     def unit(self):
-        if self.material.unit:
+        try:
             return self.material.unit
-        return 'empty'
+        except:
+            return 'empty'
 
     @property
     def quantity(self):
-        if self.material.quantity:
+        try:
             return self.material.quantity
-        return 'empty'
+        except:
+            return 'empty'
+
+

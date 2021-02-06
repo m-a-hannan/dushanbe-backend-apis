@@ -21,7 +21,7 @@ from dushanbe.serializers.type_serializers import (
 class TypeViewSet(viewsets.ModelViewSet):
     queryset = Type.objects.all().order_by('-id')
     serializer_class = TypeListSerializer
-    permission_classes = (DjangoModelPermissionsWithGET, )
+    # permission_classes = (DjangoModelPermissionsWithGET, )
     pagination_class = None
 
     @transaction.atomic

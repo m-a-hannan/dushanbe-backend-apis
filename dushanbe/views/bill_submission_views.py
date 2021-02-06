@@ -21,7 +21,7 @@ from dushanbe.serializers.bill_submission_serializers import (
 class BillSubmissionViewSet(viewsets.ModelViewSet):
     queryset = BillSubmission.objects.all().order_by('-id')
     serializer_class = BillSubmissionListSerializer
-    permission_classes = (DjangoModelPermissionsWithGET, )
+    # permission_classes = (DjangoModelPermissionsWithGET, )
     pagination_class = None
 
     @transaction.atomic

@@ -21,7 +21,7 @@ from dushanbe.serializers.material_serializers import (
 class MaterialViewSet(viewsets.ModelViewSet):
     queryset = Material.objects.all().order_by('-id')
     serializer_class = MaterialListSerializer
-    permission_classes = (DjangoModelPermissionsWithGET, )
+    # permission_classes = (DjangoModelPermissionsWithGET, )
     pagination_class = None
 
     @transaction.atomic

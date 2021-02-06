@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>API List | Dushanbe</title>
+    <title>API List | Dushanbe | Pfeiffer</title>
 </head>
 
 <body>
     <!---- DRF API Root ---->
-    <h2>Dushanbe APIs</h2>
+    <h2>Dushanbe APIs | Pfeiffer</h2>
     <hr>
 
     {#<li><a href="http://127.0.0.1:8000/api/" target="_blank">click to view DRF API Root</a></li>#}
@@ -15,73 +15,178 @@
     <li><a href="http://galib04.pythonanywhere.com/api/" target="_blank">click to view DRF API Root</a></li>
     <br>
 
-    <!---- User Token Info ---->
-    <li><b>User Token Information</b></li>
-
-    <pre>
-        Api Token:
-                {
-                    "Authorization": Token 21278526a33c2da7ef1407b0fa1e71da748b6a4b (<span style="background-color: yellow">token may differ</span>)
-                }
-    </pre>
-    <hr>
+    {#    <!---- User Token Info ---->#}
+    {#    <li><b>User Token Information</b></li>#}
+    {##}
+    {#    <pre>#}
+    {#        Api Token:#}
+    {#                {#}
+    {#                    "Authorization": Token 21278526a33c2da7ef1407b0fa1e71da748b6a4b (<span style="background-color: yellow">token may differ</span>)#}
+    {#                }#}
+    {#    </pre>#}
+    {#    <hr>#}
 
     <!---- 1. Dushanbe Module ---->
     <h3 style="text-align: center; color: orangered">1. Dushanbe Module</h3>
     <hr>
 
-        <!---- Bill ---->
-        <li><b>Bill</b></li>
-        <br>
-        <hr>
+    <!---- Bill ---->
+    <li><b>Bill</b></li>
+    <br>
+    <hr>
 
-        <p>13. Bill Create (POST): <a href="#">http://galib04.pythonanywhere.com/api/bills/</a></p>
-        <pre>
-            Api Body:
-                    {
-                        "bill_name": "Bill_1",
-                        "topic_name": "Topic_1",
-                        "material_name": "Material_1",
-                        "item_serial_no": "#1234",
-                        "unit": "m",
-                        "quantity": 5.00,
-                        "submission_date": "2021-02-01",
-                        "work_progress": 10
-                    }
-        </pre>
-        <hr>
+    <p>1. Bill Create (POST): <a href="#">http://galib04.pythonanywhere.com/api/bills/</a></p>
+    <pre>
+                Api Body:
+                        {
+                            "bill_name": "Bill No. 1. Section between TIIK1 - chamber 5/K1 - TIIK2 (length 575m)"
+                        }
+            </pre>
+    <hr>
 
-        <p>14. Bill List (GET):
-            <a href="http://galib04.pythonanywhere.com/api/bills/" target="_blank">http://galib04.pythonanywhere.com/api/bills/</a>
-        </p>
-        <hr>
+    <p>2. Bill List (GET):
+        <a href="http://galib04.pythonanywhere.com/api/bills/"
+           target="_blank">http://galib04.pythonanywhere.com/api/bills/</a>
+    </p>
+    <hr>
 
-        <p>15. Bill Retrieve (GET):
-            <a href="http://galib04.pythonanywhere.com/api/bills/1/" target="_blank">http://galib04.pythonanywhere.com/api/bills/1/</a>
-        </p>
-        <hr>
+    <p>3. Bill Retrieve (GET):
+        <a href="http://galib04.pythonanywhere.com/api/bills/1/" target="_blank">http://galib04.pythonanywhere.com/api/bills/1/</a>
+    </p>
+    <hr>
 
-        <p>16. Bill Update (PUT): <a href="#">http://galib04.pythonanywhere.com/api/bills/</a></p>
-        <pre>
-            Api Body:
-                    {
-                        "bill_name": "Updated",
-                        "topic_name": "Topic_Updated",
-                        "material_name": "Material_Updated",
-                        "item_serial_no": "#5678",
-                        "unit": "m",
-                        "quantity": 5.00,
-                        "submission_date": "2021-02-01",
-                        "work_progress": 10
-                    }
-        </pre>
-        <hr>
+    <p>4. Bill Update (PUT): <a href="#">http://galib04.pythonanywhere.com/api/bills/</a></p>
+    <pre>
+                Api Body:
+                        {
+                            "bill_name": "Bill No. 2. The area of crossing the airport territory (from 5/K1 up to 6a/K1 + 56)"
+                        }
+            </pre>
+    <hr>
 
-        <p>17. Bill Delete (DELETE):<a href="#">http://galib04.pythonanywhere.com/api/bills/1/</a></p>
-        <hr>
+    <p>5. Bill Delete (DELETE):<a href="#">http://galib04.pythonanywhere.com/api/bills/1/</a></p>
+    <hr>
 
-        <p>18. Bill Filter (GET):<a href="http://galib04.pythonanywhere.com/api/bills/?" target="_blank">http://galib04.pythonanywhere.com/api/bills/?</a></p>
-        <hr>
+    <!---- Type ---->
+    <li><b>Type</b></li>
+    <br>
+    <hr>
+
+    <p>6. Type Create (POST): <a href="#">http://galib04.pythonanywhere.com/api/types/</a></p>
+    <pre>
+                Api Body:
+                        {
+                            "type_name": "Earth works"
+                        }
+            </pre>
+    <hr>
+
+    <p>7. Type List (GET):
+        <a href="http://galib04.pythonanywhere.com/api/types/"
+           target="_blank">http://galib04.pythonanywhere.com/api/types/</a>
+    </p>
+    <hr>
+
+    <p>8. Type Retrieve (GET):
+        <a href="http://galib04.pythonanywhere.com/api/types/1/" target="_blank">http://galib04.pythonanywhere.com/api/types/1/</a>
+    </p>
+    <hr>
+
+    <p>9. Type Update (PUT): <a href="#">http://galib04.pythonanywhere.com/api/types/</a></p>
+    <pre>
+                Api Body:
+                        {
+                            "type_name": "Manholes and chambers"
+                        }
+            </pre>
+    <hr>
+
+    <p>10. Type Delete (DELETE):<a href="#">http://galib04.pythonanywhere.com/api/types/1/</a></p>
+    <hr>
+
+    <!---- Material ---->
+    <li><b>Material</b></li>
+    <br>
+    <hr>
+
+    <p>11. Material Create (POST): <a href="#">http://galib04.pythonanywhere.com/api/materials/</a></p>
+    <pre>
+                Api Body:
+                        {
+                            "material_name": "Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)",
+                            "serial_no": 1,
+                            "unit": "m",
+                            "quantity": 575.00
+                        }
+            </pre>
+    <hr>
+
+    <p>12. Material List (GET):
+        <a href="http://galib04.pythonanywhere.com/api/materials/" target="_blank">http://galib04.pythonanywhere.com/api/materials/</a>
+    </p>
+    <hr>
+
+    <p>13. Material Retrieve (GET):
+        <a href="http://galib04.pythonanywhere.com/api/materials/1/" target="_blank">http://galib04.pythonanywhere.com/api/materials/1/</a>
+    </p>
+    <hr>
+
+    <p>14. Material Update (PUT): <a href="#">http://galib04.pythonanywhere.com/api/materials/</a></p>
+    <pre>
+                Api Body:
+                        {
+                            "material_name": "Soil transportation at a distance of 6 km, for temporary storage",
+                            "serial_no": 8,
+                            "unit": "t",
+                            "quantity": 17365.00
+                        }
+            </pre>
+    <hr>
+
+    <p>15. Material Delete (DELETE):<a href="#">http://galib04.pythonanywhere.com/api/materials/1/</a></p>
+    <hr>
+
+    <!---- Bill Submissions ---->
+    <li><b>Bill Submissions</b></li>
+    <br>
+    <hr>
+
+    <p>16. Bill Submissions Create (POST): <a href="#">http://galib04.pythonanywhere.com/api/bill-submissions/</a></p>
+    <pre>
+                Api Body:
+                        {
+                            "bill": 1,              <span style="background-color: yellow">(relational field with 'Bill' table)</span>
+                            "type": 2,              <span style="background-color: yellow">(relational field with 'Type' table)</span>
+                            "material": 3,          <span style="background-color: yellow">(relational field with 'Material' table)</span>
+                            "work_progress": 10
+                        }
+            </pre>
+    <hr>
+
+    <p>17. Bill Submissions List (GET):
+        <a href="http://galib04.pythonanywhere.com/api/bill-submissions/" target="_blank">http://galib04.pythonanywhere.com/api/bill-submissions/</a>
+    </p>
+    <hr>
+
+    <p>18. Bill Submissions Retrieve (GET):
+        <a href="http://galib04.pythonanywhere.com/api/bill-submissions/1/" target="_blank">http://galib04.pythonanywhere.com/api/bill-submissions/1/</a>
+    </p>
+    <hr>
+
+    <p>19. Bill Submissions Update (PUT): <a href="#">http://galib04.pythonanywhere.com/api/bill-submissions/</a></p>
+    <pre>
+                Api Body:
+                        {
+                            "bill": 2,
+                            "type": 3,
+                            "material": 4,
+                            "work_progress": 10
+                        }
+            </pre>
+    <hr>
+
+    <p>20. Bill Submissions Delete (DELETE):<a href="#">http://galib04.pythonanywhere.com/api/bill-submissions/1/</a></p>
+    <hr>
 
 </body>
 
