@@ -59,16 +59,16 @@ def populate(n):
         )
 
         # creating objects
+        type = Type.objects.create(
+            type_name=random_string_id(10)
+        )
+
+        # creating objects
         material = Material.objects.create(
             material_name=fake_data.sentence(),
             serial_no=random.randint(1, 100),
             unit=random.choice(unit_choices),
             quantity=decimal.Decimal(random.randrange(155, 389)) / 100,
-        )
-
-        # creating objects
-        type = Type.objects.create(
-            type_name=random_string_id(10)
         )
 
         # creating objects
