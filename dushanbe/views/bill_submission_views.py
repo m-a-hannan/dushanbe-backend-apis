@@ -13,10 +13,10 @@ from dushanbe.serializers.bill_submission_serializers import (
 )
 
 
-# Create (POST): http://0.0.0.0:8000/api/bill-submissions/
-# List (GET): http://0.0.0.0:8000/api/bill-submissions/
+# Create (POST): http://127.0.0.1:8000/api/bill-submissions/
+# List (GET): http://127.0.0.1:8000/api/bill-submissions/
 # Delete (DELETE): http://127.0.0.1:8000/api/bill-submissions/{id}/
-# Retrieve (GET): http://0.0.0.0:8000/api/bill-submissions/{id}/
+# Retrieve (GET): http://127.0.0.1:8000/api/bill-submissions/{id}/
 # Update (PUT): http://127.0.0.1:8000/api/bill-submissions/{id}/
 class BillSubmissionViewSet(viewsets.ModelViewSet):
     queryset = BillSubmission.objects.all().order_by('-id')

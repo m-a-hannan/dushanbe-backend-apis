@@ -13,9 +13,9 @@ from dushanbe.serializers.material_serializers import (
 )
 
 
-# Create (POST): http://0.0.0.0:8000/api/materials/
-# List (GET): http://0.0.0.0:8000/api/materials/
-# Retrieve (GET): http://0.0.0.0:8000/api/materials/{id}/
+# Create (POST): http://127.0.0.1:8000/api/materials/
+# List (GET): http://127.0.0.1:8000/api/materials/
+# Retrieve (GET): http://127.0.0.1:8000/api/materials/{id}/
 # Update (PUT): http://127.0.0.1:8000/api/materials/{id}/
 # Delete (DELETE): http://127.0.0.1:8000/api/materials/{id}/
 class MaterialViewSet(viewsets.ModelViewSet):

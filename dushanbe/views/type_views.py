@@ -13,9 +13,9 @@ from dushanbe.serializers.type_serializers import (
 )
 
 
-# Create (POST): http://0.0.0.0:8000/api/types/
-# List (GET): http://0.0.0.0:8000/api/types/
-# Retrieve (GET): http://0.0.0.0:8000/api/types/{id}/
+# Create (POST): http://127.0.0.1:8000/api/types/
+# List (GET): http://127.0.0.1:8000/api/types/
+# Retrieve (GET): http://127.0.0.1:8000/api/types/{id}/
 # Update (PUT): http://127.0.0.1:8000/api/types/{id}/
 # Delete (DELETE): http://127.0.0.1:8000/api/types/{id}/
 class TypeViewSet(viewsets.ModelViewSet):
