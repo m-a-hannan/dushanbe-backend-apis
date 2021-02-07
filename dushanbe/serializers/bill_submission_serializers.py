@@ -43,7 +43,7 @@ class BillSubmissionCreateSerializer(serializers.ModelSerializer):
     bill = serializers.PrimaryKeyRelatedField(many=False, queryset=Bill.objects.all())
     type = serializers.PrimaryKeyRelatedField(many=False, queryset=Type.objects.all())
     material = serializers.PrimaryKeyRelatedField(many=False, queryset=Material.objects.all())
-    submission_date = serializers.DateField(required=False, format="%Y-%m-%d")
+    submission_date = serializers.DateField(format="%Y-%m-%d")
     work_progress = serializers.IntegerField(default=0)
 
     class Meta:

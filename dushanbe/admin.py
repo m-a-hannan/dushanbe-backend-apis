@@ -52,8 +52,8 @@ class BillSubmissionInline(admin.TabularInline):
 class BillAdmin(admin.ModelAdmin):
     list_display = ['id', 'bill_name', 'active_status']
     list_display_links = ['bill_name']
-    inlines = [BillSubmissionInline, ]
     ordering = ['-id']
+    # inlines = [BillSubmissionInline, ]
 
 
 # Type

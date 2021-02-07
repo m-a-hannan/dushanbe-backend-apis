@@ -45,7 +45,7 @@ class BillSubmission(models.Model):
     type = models.ForeignKey(Type, on_delete=models.CASCADE, blank=True, null=True, related_name='billsubmission_type')
     material = models.ForeignKey(Material, on_delete=models.SET_NULL, null=True, related_name='billsubmission_material')
 
-    submission_date = models.DateField(auto_now_add=True, editable=True, blank=True, null=True)
+    submission_date = models.DateField(editable=True, blank=True, null=True)
     work_progress = models.PositiveIntegerField(default=0, blank=True, null=True)
 
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='billsubmission_created_by')

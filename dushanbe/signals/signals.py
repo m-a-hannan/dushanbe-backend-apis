@@ -1,8 +1,8 @@
-import inspect
-from django.dispatch import receiver
-from django.db.models.signals import post_save, pre_save
-from dushanbe.helpers.random_string import random_string_id
-from dushanbe.models import Bill, Material, Type, BillSubmission
+# import inspect
+# from django.dispatch import receiver
+# from django.db.models.signals import post_save, pre_save
+# from dushanbe.helpers.random_string import random_string_id
+# from dushanbe.models import Bill, Material, Type, BillSubmission
 
 
 # # BillSubmission Table
