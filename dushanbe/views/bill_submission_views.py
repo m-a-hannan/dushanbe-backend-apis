@@ -1,9 +1,11 @@
 from django.db import transaction
 from rest_framework import status, viewsets
 from rest_framework.response import Response
+from django_filters.rest_framework import DjangoFilterBackend
 
 # app
 from dushanbe.models import BillSubmission
+from dushanbe.filters.filters import BillSubmissionFilter
 from dushanbe.paginations.paginations import CustomPageNumberPagination
 from dushanbe.permissions.common_permissions import DjangoModelPermissionsWithGET
 from dushanbe.serializers.bill_submission_serializers import (
@@ -18,10 +20,14 @@ from dushanbe.serializers.bill_submission_serializers import (
 # Delete (DELETE): http://127.0.0.1:8000/api/bill-submissions/{id}/
 # Retrieve (GET): http://127.0.0.1:8000/api/bill-submissions/{id}/
 # Update (PUT): http://127.0.0.1:8000/api/bill-submissions/{id}/
+# Filter (GET): http://127.0.0.1:8000/api/bill-submissions/?
+# bill=1&type=1&material=2&serial_no=2&unit=kits&quantity=1.00&submission_date=2021-02-07&work_progress=2&created_by=1
 class BillSubmissionViewSet(viewsets.ModelViewSet):
     queryset = BillSubmission.objects.all().order_by('-id')
     serializer_class = BillSubmissionListSerializer
     # permission_classes = (DjangoModelPermissionsWithGET, )
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = BillSubmissionFilter
     pagination_class = None
 
     @transaction.atomic
