@@ -38,6 +38,10 @@ class Material(models.Model):
     def __str__(self):
         return self.material_name
 
+    @property
+    def short_material_name(self):
+        return self.material_name[0:11]
+
 
 # BillSubmission Table
 class BillSubmission(models.Model):

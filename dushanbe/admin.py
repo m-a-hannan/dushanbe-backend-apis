@@ -67,8 +67,8 @@ class TypeAdmin(admin.ModelAdmin):
 # Material
 @admin.register(Material)
 class MaterialAdmin(admin.ModelAdmin):
-    list_display = ['id', 'material_name', 'serial_no', 'unit', 'quantity']
-    list_display_links = ['material_name']
+    list_display = ['id', 'short_material_name', 'serial_no', 'unit', 'quantity', 'material_name']
+    list_display_links = ['short_material_name']
     ordering = ['-id']
 
 

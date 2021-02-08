@@ -31,7 +31,7 @@ class MaterialUpdateSerializer(serializers.ModelSerializer):
 class MaterialListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Material
-        fields = ('id', 'material_name', 'serial_no', 'unit', 'quantity')
+        fields = ('id', 'short_material_name', 'serial_no', 'unit', 'quantity')
 
 
 
