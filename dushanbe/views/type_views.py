@@ -1,9 +1,11 @@
 from django.db import transaction
 from rest_framework import status, viewsets
 from rest_framework.response import Response
+from django_filters.rest_framework import DjangoFilterBackend
 
 # app
 from dushanbe.models import Type
+from dushanbe.filters.filters import TypeFilter
 from dushanbe.paginations.paginations import CustomPageNumberPagination
 from dushanbe.permissions.common_permissions import DjangoModelPermissionsWithGET
 from dushanbe.serializers.type_serializers import (
@@ -18,10 +20,13 @@ from dushanbe.serializers.type_serializers import (
 # Retrieve (GET): http://127.0.0.1:8000/api/types/{id}/
 # Update (PUT): http://127.0.0.1:8000/api/types/{id}/
 # Delete (DELETE): http://127.0.0.1:8000/api/types/{id}/
+# Filter (GET): http://127.0.0.1:8000/api/types/?type_name=Edited&material=3&serial_no=3&unit=nr&quantity=2.00
 class TypeViewSet(viewsets.ModelViewSet):
     queryset = Type.objects.all().order_by('-id')
     serializer_class = TypeListSerializer
     # permission_classes = (DjangoModelPermissionsWithGET, )
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = TypeFilter
     pagination_class = None
 
     @transaction.atomic

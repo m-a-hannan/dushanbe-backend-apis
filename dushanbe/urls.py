@@ -25,6 +25,7 @@ dushanbe_router.register('bills', BillViewSet)
 # Retrieve (GET): http://127.0.0.1:8000/api/types/{id}/
 # Update (PUT): http://127.0.0.1:8000/api/types/{id}/
 # Delete (DELETE): http://127.0.0.1:8000/api/types/{id}/
+# Filter (GET): http://127.0.0.1:8000/api/types/?type_name=Edited&material=3&serial_no=3&unit=nr&quantity=2.00
 dushanbe_router.register('types', TypeViewSet)
 
 
@@ -43,8 +44,7 @@ dushanbe_router.register('materials', MaterialViewSet)
 # Delete (DELETE): http://127.0.0.1:8000/api/bill-submissions/{id}/
 # Retrieve (GET): http://127.0.0.1:8000/api/bill-submissions/{id}/
 # Update (PUT): http://127.0.0.1:8000/api/bill-submissions/{id}/
-# Filter (GET): http://127.0.0.1:8000/api/bill-submissions/?
-# bill=1&type=1&material=2&serial_no=2&unit=kits&quantity=1.00&submission_date=2021-02-07&work_progress=2&created_by=1
+# Filter (GET): http://127.0.0.1:8000/api/bill-submissions/?bill=1&type=1&serial_no=2&unit=kits&quantity=1.00&submission_date=2021-02-07&work_progress=2&created_by=1
 dushanbe_router.register('bill-submissions', BillSubmissionViewSet)
 
 

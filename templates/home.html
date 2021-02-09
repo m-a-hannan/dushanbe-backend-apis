@@ -7,14 +7,16 @@
 
 <body>
     <!---- DRF API Root ---->
-    <h2>Dushanbe APIs | Pfeiffer</h2>
+    <h2 style="text-align: center; color: orangered">Dushanbe APIs</h2>
+    <a href="http://jahidmsk.pythonanywhere.com/api/" target="_blank"><center>click to view DRF API Root</center></a>
+    <br>
     <hr>
 
     {#<li><a href="http://127.0.0.1:8000/api/" target="_blank">click to view DRF API Root</a></li>#}
     {#<li><a href="http://0.0.0.0:8000/api/" target="_blank">click to view DRF API Root</a></li>#}
 {#    <li><a href="http://galib04.pythonanywhere.com/api/" target="_blank">click to view DRF API Root</a></li>#}
-    <li><a href="http://jahidmsk.pythonanywhere.com/api/" target="_blank">click to view DRF API Root</a></li>
-    <br>
+{#    <br>#}
+{#    <hr>#}
 
     {#    <!---- User Token Info ---->#}
     {#    <li><b>User Token Information</b></li>#}
@@ -27,9 +29,9 @@
     {#    </pre>#}
     {#    <hr>#}
 
-    <!---- 1. Dushanbe Module ---->
-    <h3 style="text-align: center; color: orangered">1. Dushanbe Module</h3>
-    <hr>
+{#    <!---- Dushanbe Module ---->#}
+{#    <h3 style="text-align: center; color: orangered">Dushanbe Module</h3>#}
+{#    <hr>#}
 
     <!---- Bill ---->
     <li><b>Bill</b></li>
@@ -77,7 +79,8 @@
     <pre>
                 Api Body:
                         {
-                            "type_name": "Earth works"
+                            "type_name": "Earth works",
+                            "material": 1,                      <span style="background-color: yellow">(relational field with 'Material' table)</span>
                         }
             </pre>
     <hr>
@@ -97,7 +100,8 @@
     <pre>
                 Api Body:
                         {
-                            "type_name": "Manholes and chambers"
+                            "type_name": "Manholes and chambers",
+                            "material": 3,
                         }
             </pre>
     <hr>
@@ -105,12 +109,19 @@
     <p>10. Type Delete (DELETE):<a href="#">http://jahidmsk.pythonanywhere.com/api/types/1/</a></p>
     <hr>
 
+    <p>11. Type Filter (GET):
+        <a href="http://jahidmsk.pythonanywhere.com/api/types/?type_name=Edited&material=3&serial_no=3&unit=nr&quantity=2.00" target="_blank">
+            http://jahidmsk.pythonanywhere.com/api/types/?type_name=Edited&material=3&serial_no=3&unit=nr&quantity=2.00
+        </a>
+    </p>
+    <hr>
+
     <!---- Material ---->
     <li><b>Material</b></li>
     <br>
     <hr>
 
-    <p>11. Material Create (POST): <a href="#">http://jahidmsk.pythonanywhere.com/api/materials/</a></p>
+    <p>12. Material Create (POST): <a href="#">http://jahidmsk.pythonanywhere.com/api/materials/</a></p>
     <pre>
                 Api Body:
                         {
@@ -122,17 +133,17 @@
             </pre>
     <hr>
 
-    <p>12. Material List (GET):
+    <p>13. Material List (GET):
         <a href="http://jahidmsk.pythonanywhere.com/api/materials/" target="_blank">http://jahidmsk.pythonanywhere.com/api/materials/</a>
     </p>
     <hr>
 
-    <p>13. Material Retrieve (GET):
+    <p>14. Material Retrieve (GET):
         <a href="http://jahidmsk.pythonanywhere.com/api/materials/1/" target="_blank">http://jahidmsk.pythonanywhere.com/api/materials/1/</a>
     </p>
     <hr>
 
-    <p>14. Material Update (PUT): <a href="#">http://jahidmsk.pythonanywhere.com/api/materials/</a></p>
+    <p>15. Material Update (PUT): <a href="#">http://jahidmsk.pythonanywhere.com/api/materials/</a></p>
     <pre>
                 Api Body:
                         {
@@ -144,7 +155,7 @@
             </pre>
     <hr>
 
-    <p>15. Material Delete (DELETE):<a href="#">http://jahidmsk.pythonanywhere.com/api/materials/1/</a></p>
+    <p>16. Material Delete (DELETE):<a href="#">http://jahidmsk.pythonanywhere.com/api/materials/1/</a></p>
     <hr>
 
     <!---- Bill Submissions ---->
@@ -152,48 +163,46 @@
     <br>
     <hr>
 
-    <p>16. Bill Submissions Create (POST): <a href="#">http://jahidmsk.pythonanywhere.com/api/bill-submissions/</a></p>
+    <p>17. Bill Submissions Create (POST): <a href="#">http://jahidmsk.pythonanywhere.com/api/bill-submissions/</a></p>
     <pre>
                 Api Body:
                         {
                             "bill": 1,                          <span style="background-color: yellow">(relational field with 'Bill' table)</span>
                             "type": 2,                          <span style="background-color: yellow">(relational field with 'Type' table)</span>
-                            "material": 3,                      <span style="background-color: yellow">(relational field with 'Material' table)</span>
                             "submission_date": "2021-02-01",
                             "work_progress": 10
                         }
             </pre>
     <hr>
 
-    <p>17. Bill Submissions List (GET):
+    <p>18. Bill Submissions List (GET):
         <a href="http://jahidmsk.pythonanywhere.com/api/bill-submissions/" target="_blank">http://jahidmsk.pythonanywhere.com/api/bill-submissions/</a>
     </p>
     <hr>
 
-    <p>18. Bill Submissions Retrieve (GET):
+    <p>19. Bill Submissions Retrieve (GET):
         <a href="http://jahidmsk.pythonanywhere.com/api/bill-submissions/1/" target="_blank">http://jahidmsk.pythonanywhere.com/api/bill-submissions/1/</a>
     </p>
     <hr>
 
-    <p>19. Bill Submissions Update (PUT): <a href="#">http://jahidmsk.pythonanywhere.com/api/bill-submissions/</a></p>
+    <p>20. Bill Submissions Update (PUT): <a href="#">http://jahidmsk.pythonanywhere.com/api/bill-submissions/</a></p>
     <pre>
                 Api Body:
                         {
                             "bill": 2,
                             "type": 3,
-                            "material": 4,
                             "submission_date": "2021-02-10",
                             "work_progress": 10
                         }
             </pre>
     <hr>
 
-    <p>20. Bill Submissions Delete (DELETE): <a href="#">http://jahidmsk.pythonanywhere.com/api/bill-submissions/1/</a></p>
+    <p>21. Bill Submissions Delete (DELETE): <a href="#">http://jahidmsk.pythonanywhere.com/api/bill-submissions/1/</a></p>
     <hr>
 
-    <p>21. Bill Submissions Filter (GET): <br>
-        <a href="http://jahidmsk.pythonanywhere.com/api/bill-submissions/?bill=1&type=1&material=2&serial_no=2&unit=kits&quantity=1.00&submission_date=2021-02-07&work_progress=2&created_by=1" target="_blank">
-            http://jahidmsk.pythonanywhere.com/api/bill-submissions/?bill=1&type=1&material=2&serial_no=2&unit=kits&quantity=1.00&submission_date=2021-02-07&work_progress=2&created_by=1
+    <p>22. Bill Submissions Filter (GET): <br>
+        <a href="http://jahidmsk.pythonanywhere.com/api/bill-submissions/?bill=1&type=1&serial_no=2&unit=kits&quantity=1.00&submission_date=2021-02-07&work_progress=2&created_by=1" target="_blank">
+            http://jahidmsk.pythonanywhere.com/api/bill-submissions/?bill=1&type=1&serial_no=2&unit=kits&quantity=1.00&submission_date=2021-02-07&work_progress=2&created_by=1
         </a>
     </p>
     <hr>

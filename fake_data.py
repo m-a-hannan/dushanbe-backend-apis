@@ -59,11 +59,6 @@ def populate(n):
         )
 
         # creating objects
-        type = Type.objects.create(
-            type_name=random_string_id(10)
-        )
-
-        # creating objects
         material = Material.objects.create(
             material_name=fake_data.sentence(),
             serial_no=random.randint(1, 100),
@@ -72,10 +67,15 @@ def populate(n):
         )
 
         # creating objects
+        type = Type.objects.create(
+            type_name=random_string_id(10),
+            material=material,
+        )
+
+        # creating objects
         BillSubmission.objects.create(
             bill=bill,
             type=type,
-            material=material,
             submission_date=fake_data.date(),
             work_progress=random.randint(0, 100),
             created_by=user

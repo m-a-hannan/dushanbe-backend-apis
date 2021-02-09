@@ -43,8 +43,8 @@ class GroupAdmin(admin.ModelAdmin):
 
 # BillSubmission Inline
 # class BillSubmissionInline(admin.StackedInline):
-class BillSubmissionInline(admin.TabularInline):
-    model = BillSubmission
+# class BillSubmissionInline(admin.TabularInline):
+#     model = BillSubmission
 
 
 # Bill
@@ -59,8 +59,8 @@ class BillAdmin(admin.ModelAdmin):
 # Type
 @admin.register(Type)
 class TypeAdmin(admin.ModelAdmin):
-    list_display = ['id', 'type_name']
-    list_display_links = ['type_name']
+    list_display = ['id', 'type_name', 'material']
+    list_display_links = ['type_name', 'material']
     ordering = ['-id']
 
 
@@ -75,13 +75,11 @@ class MaterialAdmin(admin.ModelAdmin):
 # BillSubmission
 @admin.register(BillSubmission)
 class BillSubmissionAdmin(admin.ModelAdmin):
-    list_display = [
-        'id', 'bill', 'type', 'material', 'serial_no', 'unit', 'quantity', 'submission_date',
-        'work_progress', 'created_by'
-    ]
+    list_display = ['id', 'bill', 'type', 'short_material_name', 'serial_no', 'unit', 'quantity', 'submission_date', 'work_progress', 'created_by']
     list_display_links = ['bill']
-    # list_filter = ['bill', 'type', 'material']
     ordering = ['-id']
+    # list_filter = ['bill', 'type']
+
 
 
 
