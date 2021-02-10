@@ -16,7 +16,7 @@ class Bill(models.Model):
 
 # Type Table
 class Type(models.Model):
-    type_name = models.CharField(max_length=250, unique=True, blank=True, null=True)
+    type_name = models.CharField(max_length=250, blank=True, null=True)
     material = models.ForeignKey('Material', on_delete=models.SET_NULL, null=True, related_name='type_material')
 
     class Meta:

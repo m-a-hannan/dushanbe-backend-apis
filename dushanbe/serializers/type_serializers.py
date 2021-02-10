@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from dushanbe.models import Type, Material
-from rest_framework.validators import UniqueValidator
 
 
 """ Extra Serializers for Type Serializers """
@@ -18,7 +17,7 @@ class MaterialSerializer(serializers.ModelSerializer):
 
 # Type Create Serializer
 class TypeCreateSerializer(serializers.ModelSerializer):
-    type_name = serializers.CharField(max_length=250, validators=[UniqueValidator(queryset=Type.objects.all())])
+    type_name = serializers.CharField(max_length=250)
     material = serializers.PrimaryKeyRelatedField(many=False, queryset=Material.objects.all())
 
     class Meta:
@@ -28,7 +27,7 @@ class TypeCreateSerializer(serializers.ModelSerializer):
 
 # Type Update Serializer
 class TypeUpdateSerializer(serializers.ModelSerializer):
-    type_name = serializers.CharField(required=False, max_length=250, validators=[UniqueValidator(queryset=Type.objects.all())])
+    type_name = serializers.CharField(required=False, max_length=250)
     material = serializers.PrimaryKeyRelatedField(required=False, many=False, queryset=Material.objects.all())
 
     class Meta:
