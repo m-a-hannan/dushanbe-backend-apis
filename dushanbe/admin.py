@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.models import User, Group
-from .models import Bill, Material, Type, BillSubmission
+from .models import Bill, Material, Type, WorkSubmission
 
 
 admin.site.site_header = "Dushanbe Admin"
@@ -33,7 +33,7 @@ admin.site.unregister(Group)
 @admin.register(Group)
 class GroupAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'permissions_list']
-    list_display_links = ['name']
+    list_display_links = ['id']
     filter_horizontal = ['permissions']
     ordering = ['-id']
 
@@ -41,17 +41,17 @@ class GroupAdmin(admin.ModelAdmin):
         return " | ".join([i.codename for i in obj.permissions.all()])
 
 
-# BillSubmission Inline
-# class BillSubmissionInline(admin.StackedInline):
-# class BillSubmissionInline(admin.TabularInline):
-#     model = BillSubmission
+# WorkSubmission Inline
+# class WorkSubmissionInline(admin.StackedInline):
+# class WorkSubmissionInline(admin.TabularInline):
+#     model = WorkSubmission
 
 
 # Bill
 @admin.register(Bill)
 class BillAdmin(admin.ModelAdmin):
-    list_display = ['id', 'bill_name', 'active_status']
-    list_display_links = ['bill_name']
+    list_display = ['id', 'short_bill_name', 'bill_name']
+    list_display_links = ['id']
     ordering = ['-id']
     # inlines = [BillSubmissionInline, ]
 
@@ -59,26 +59,30 @@ class BillAdmin(admin.ModelAdmin):
 # Type
 @admin.register(Type)
 class TypeAdmin(admin.ModelAdmin):
-    list_display = ['id', 'type_name', 'material']
-    list_display_links = ['type_name', 'material']
+    list_display = ['id', 'short_bill_name', 'short_type_name', 'type_name']
+    list_display_links = ['id']
     ordering = ['-id']
 
 
 # Material
 @admin.register(Material)
 class MaterialAdmin(admin.ModelAdmin):
-    list_display = ['id', 'short_material_name', 'serial_no', 'unit', 'quantity', 'material_name']
-    list_display_links = ['short_material_name']
+    list_display = ['id', 'short_type_name', 'short_material_name', 'material_name', 'serial_no', 'unit', 'quantity']
+    list_display_links = ['id']
     ordering = ['-id']
 
 
-# BillSubmission
-@admin.register(BillSubmission)
-class BillSubmissionAdmin(admin.ModelAdmin):
-    list_display = ['id', 'bill', 'type', 'short_material_name', 'serial_no', 'unit', 'quantity', 'submission_date', 'work_progress', 'created_by']
-    list_display_links = ['bill']
+# WorkSubmission
+@admin.register(WorkSubmission)
+class WorkSubmissionAdmin(admin.ModelAdmin):
+    list_display = [
+        'id', 'short_bill_name', 'short_type_name', 'short_material_name', 'serial_no', 'unit', 'quantity',
+        'submission_date', 'work_progress', 'created_by', 'active_status'
+    ]
+    list_editable = ['active_status']
+    list_display_links = ['id']
     ordering = ['-id']
-    # list_filter = ['bill', 'type']
+    # list_filter = ['bill', 'type', 'material']
 
 
 

@@ -1,46 +1,46 @@
 from rest_framework import serializers
-from dushanbe.models import Type, Material
+from dushanbe.models import Bill, Type, Material
 
 
-""" Extra Serializers for Type Serializers """
+""" Extra Serializers for This Serializers """
 
 
-# Material Serializer
-class MaterialSerializer(serializers.ModelSerializer):
+# Bill Serializer
+class BillSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Material
-        fields = ('id', 'short_material_name', 'serial_no', 'unit', 'quantity')
+        model = Bill
+        fields = ('id', 'short_bill_name')
 
 
-""" Type Serializers """
+""" This Serializers """
 
 
 # Type Create Serializer
 class TypeCreateSerializer(serializers.ModelSerializer):
+    bill = serializers.PrimaryKeyRelatedField(many=False, queryset=Bill.objects.all())
     type_name = serializers.CharField(max_length=250)
-    material = serializers.PrimaryKeyRelatedField(many=False, queryset=Material.objects.all())
 
     class Meta:
         model = Type
-        fields = ('id', 'type_name', 'material')
+        fields = ('id', 'bill', 'short_type_name', 'type_name')
 
 
 # Type Update Serializer
 class TypeUpdateSerializer(serializers.ModelSerializer):
+    bill = serializers.PrimaryKeyRelatedField(required=False, many=False, queryset=Bill.objects.all())
     type_name = serializers.CharField(required=False, max_length=250)
-    material = serializers.PrimaryKeyRelatedField(required=False, many=False, queryset=Material.objects.all())
 
     class Meta:
         model = Type
-        fields = ('id', 'type_name', 'material')
+        fields = ('id', 'bill', 'short_type_name', 'type_name')
 
 
 # Type List Serializer
 class TypeListSerializer(serializers.ModelSerializer):
-    material = MaterialSerializer(read_only=True)
+    bill = BillSerializer(read_only=True)
 
     class Meta:
         model = Type
-        fields = ('id', 'type_name', 'material')
+        fields = ('id', 'bill', 'short_type_name', 'type_name')
 
 
