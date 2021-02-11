@@ -1,11 +1,11 @@
 from django.db import transaction
 from rest_framework import status, viewsets
 from rest_framework.response import Response
-from django_filters.rest_framework import DjangoFilterBackend
+# from django_filters.rest_framework import DjangoFilterBackend
 
 # app
 from dushanbe.models import Type
-from dushanbe.filters.filters import TypeFilter
+# from dushanbe.filters.filters import TypeFilter
 from dushanbe.paginations.paginations import CustomPageNumberPagination
 from dushanbe.permissions.common_permissions import DjangoModelPermissionsWithGET
 from dushanbe.serializers.type_serializers import (
@@ -25,8 +25,8 @@ class TypeViewSet(viewsets.ModelViewSet):
     queryset = Type.objects.all().order_by('-id')
     serializer_class = TypeListSerializer
     # permission_classes = (DjangoModelPermissionsWithGET, )
-    filter_backends = [DjangoFilterBackend]
-    filterset_class = TypeFilter
+    # filter_backends = [DjangoFilterBackend]
+    # filterset_class = TypeFilter
     pagination_class = None
 
     @transaction.atomic

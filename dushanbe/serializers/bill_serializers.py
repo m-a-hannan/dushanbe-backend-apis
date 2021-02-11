@@ -10,7 +10,7 @@ class BillCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Bill
-        fields = ('id', 'bill_name', 'active_status')
+        fields = ('id', 'short_bill_name', 'bill_name')
 
 
 # Bill Update Serializer
@@ -19,12 +19,12 @@ class BillUpdateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Bill
-        fields = ('id', 'bill_name', 'active_status')
+        fields = ('id', 'short_bill_name', 'bill_name')
 
 
 # Bill List Serializer
 class BillListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Bill
-        fields = ('id', 'bill_name', 'active_status')
+        fields = ('id', 'short_bill_name', 'bill_name')
 

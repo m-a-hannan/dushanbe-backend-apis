@@ -79,8 +79,8 @@
     <pre>
                 Api Body:
                         {
-                            "type_name": "Earth works",
-                            "material": 1,                      <span style="background-color: yellow">(relational field with 'Material' table)</span>
+                            "bill": 1,                      <span style="background-color: yellow">(relational field with 'Bill' table)</span>
+                            "type_name": "Earth works"
                         }
             </pre>
     <hr>
@@ -100,8 +100,8 @@
     <pre>
                 Api Body:
                         {
-                            "type_name": "Manholes and chambers",
-                            "material": 3,
+                            "bill": 2,
+                            "type_name": "Manholes and chambers"
                         }
             </pre>
     <hr>
@@ -125,8 +125,9 @@
     <pre>
                 Api Body:
                         {
-                            "material_name": "Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)",
-                            "serial_no": 1,
+                            "type": 1,                                                      <span style="background-color: yellow">(relational field with 'Type' table)</span>
+                            "material_name": "Marking of the pipeline route with paint",
+                            "serial_no": 10,
                             "unit": "m",
                             "quantity": 575.00
                         }
@@ -147,6 +148,7 @@
     <pre>
                 Api Body:
                         {
+                            "type": 2,
                             "material_name": "Soil transportation at a distance of 6 km, for temporary storage",
                             "serial_no": 8,
                             "unit": "t",
@@ -158,51 +160,53 @@
     <p>16. Material Delete (DELETE):<a href="#">http://jahidmsk.pythonanywhere.com/api/materials/1/</a></p>
     <hr>
 
-    <!---- Bill Submissions ---->
-    <li><b>Bill Submissions</b></li>
+    <!---- Work Submissions ---->
+    <li><b>Work Submissions</b></li>
     <br>
     <hr>
 
-    <p>17. Bill Submissions Create (POST): <a href="#">http://jahidmsk.pythonanywhere.com/api/bill-submissions/</a></p>
+    <p>17. Work Submissions Create (POST): <a href="#">http://jahidmsk.pythonanywhere.com/api/work-submissions/</a></p>
     <pre>
                 Api Body:
                         {
                             "bill": 1,                          <span style="background-color: yellow">(relational field with 'Bill' table)</span>
                             "type": 2,                          <span style="background-color: yellow">(relational field with 'Type' table)</span>
+                            "material": 2,                      <span style="background-color: yellow">(relational field with 'Material' table)</span>
                             "submission_date": "2021-02-01",
                             "work_progress": 10
                         }
             </pre>
     <hr>
 
-    <p>18. Bill Submissions List (GET):
-        <a href="http://jahidmsk.pythonanywhere.com/api/bill-submissions/" target="_blank">http://jahidmsk.pythonanywhere.com/api/bill-submissions/</a>
+    <p>18. Work Submissions List (GET):
+        <a href="http://jahidmsk.pythonanywhere.com/api/work-submissions/" target="_blank">http://jahidmsk.pythonanywhere.com/api/work-submissions/</a>
     </p>
     <hr>
 
-    <p>19. Bill Submissions Retrieve (GET):
-        <a href="http://jahidmsk.pythonanywhere.com/api/bill-submissions/1/" target="_blank">http://jahidmsk.pythonanywhere.com/api/bill-submissions/1/</a>
+    <p>19. Work Submissions Retrieve (GET):
+        <a href="http://jahidmsk.pythonanywhere.com/api/work-submissions/1/" target="_blank">http://jahidmsk.pythonanywhere.com/api/work-submissions/1/</a>
     </p>
     <hr>
 
-    <p>20. Bill Submissions Update (PUT): <a href="#">http://jahidmsk.pythonanywhere.com/api/bill-submissions/</a></p>
+    <p>20. Work Submissions Update (PUT): <a href="#">http://jahidmsk.pythonanywhere.com/api/work-submissions/</a></p>
     <pre>
                 Api Body:
                         {
                             "bill": 2,
                             "type": 3,
+                            "material": 2,
                             "submission_date": "2021-02-10",
                             "work_progress": 10
                         }
             </pre>
     <hr>
 
-    <p>21. Bill Submissions Delete (DELETE): <a href="#">http://jahidmsk.pythonanywhere.com/api/bill-submissions/1/</a></p>
+    <p>21. Work Submissions Delete (DELETE): <a href="#">http://jahidmsk.pythonanywhere.com/api/work-submissions/1/</a></p>
     <hr>
 
-    <p>22. Bill Submissions Filter (GET): <br>
-        <a href="http://jahidmsk.pythonanywhere.com/api/bill-submissions/?bill=1&type=1&serial_no=2&unit=kits&quantity=1.00&submission_date=2021-02-07&work_progress=2&created_by=1" target="_blank">
-            http://jahidmsk.pythonanywhere.com/api/bill-submissions/?bill=1&type=1&serial_no=2&unit=kits&quantity=1.00&submission_date=2021-02-07&work_progress=2&created_by=1
+    <p>22. Work Submissions Filter (GET): <br>
+        <a href="http://jahidmsk.pythonanywhere.com/api/work-submissions/?bill=1&type=1&serial_no=2&unit=kits&quantity=1.00&submission_date=2021-02-07&work_progress=2&created_by=1" target="_blank">
+            http://jahidmsk.pythonanywhere.com/api/work-submissions/?bill=1&type=1&serial_no=2&unit=kits&quantity=1.00&submission_date=2021-02-07&work_progress=2&created_by=1
         </a>
     </p>
     <hr>

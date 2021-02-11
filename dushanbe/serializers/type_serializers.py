@@ -1,47 +1,46 @@
 from rest_framework import serializers
-from dushanbe.models import Type, Material
-from rest_framework.validators import UniqueValidator
+from dushanbe.models import Bill, Type, Material
 
 
-""" Extra Serializers for Type Serializers """
+""" Extra Serializers for This Serializers """
 
 
-# Material Serializer
-class MaterialSerializer(serializers.ModelSerializer):
+# Bill Serializer
+class BillSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Material
-        fields = ('id', 'short_material_name', 'serial_no', 'unit', 'quantity')
+        model = Bill
+        fields = ('id', 'short_bill_name')
 
 
-""" Type Serializers """
+""" This Serializers """
 
 
 # Type Create Serializer
 class TypeCreateSerializer(serializers.ModelSerializer):
-    type_name = serializers.CharField(max_length=250, validators=[UniqueValidator(queryset=Type.objects.all())])
-    material = serializers.PrimaryKeyRelatedField(many=False, queryset=Material.objects.all())
+    bill = serializers.PrimaryKeyRelatedField(many=False, queryset=Bill.objects.all())
+    type_name = serializers.CharField(max_length=250)
 
     class Meta:
         model = Type
-        fields = ('id', 'type_name', 'material')
+        fields = ('id', 'bill', 'short_type_name', 'type_name')
 
 
 # Type Update Serializer
 class TypeUpdateSerializer(serializers.ModelSerializer):
-    type_name = serializers.CharField(required=False, max_length=250, validators=[UniqueValidator(queryset=Type.objects.all())])
-    material = serializers.PrimaryKeyRelatedField(required=False, many=False, queryset=Material.objects.all())
+    bill = serializers.PrimaryKeyRelatedField(required=False, many=False, queryset=Bill.objects.all())
+    type_name = serializers.CharField(required=False, max_length=250)
 
     class Meta:
         model = Type
-        fields = ('id', 'type_name', 'material')
+        fields = ('id', 'bill', 'short_type_name', 'type_name')
 
 
 # Type List Serializer
 class TypeListSerializer(serializers.ModelSerializer):
-    material = MaterialSerializer(read_only=True)
+    bill = BillSerializer(read_only=True)
 
     class Meta:
         model = Type
-        fields = ('id', 'type_name', 'material')
+        fields = ('id', 'bill', 'short_type_name', 'type_name')
 
 

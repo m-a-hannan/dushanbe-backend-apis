@@ -3,7 +3,7 @@ from rest_framework import routers
 from dushanbe.views.bill_views import BillViewSet
 from dushanbe.views.type_views import TypeViewSet
 from dushanbe.views.materials_views import MaterialViewSet
-from dushanbe.views.bill_submission_views import BillSubmissionViewSet
+from dushanbe.views.work_submission_views import WorkSubmissionViewSet
 
 
 # ModelViewSet router
@@ -38,14 +38,14 @@ dushanbe_router.register('types', TypeViewSet)
 dushanbe_router.register('materials', MaterialViewSet)
 
 
-""" BillSubmission Routers """
-# Create (POST): http://127.0.0.1:8000/api/bill-submissions/
-# List (GET): http://127.0.0.1:8000/api/bill-submissions/
-# Delete (DELETE): http://127.0.0.1:8000/api/bill-submissions/{id}/
-# Retrieve (GET): http://127.0.0.1:8000/api/bill-submissions/{id}/
-# Update (PUT): http://127.0.0.1:8000/api/bill-submissions/{id}/
-# Filter (GET): http://127.0.0.1:8000/api/bill-submissions/?bill=1&type=1&serial_no=2&unit=kits&quantity=1.00&submission_date=2021-02-07&work_progress=2&created_by=1
-dushanbe_router.register('bill-submissions', BillSubmissionViewSet)
+""" WorkSubmission Routers """
+# Create (POST): http://127.0.0.1:8000/api/work-submissions/
+# List (GET): http://127.0.0.1:8000/api/work-submissions/
+# Delete (DELETE): http://127.0.0.1:8000/api/work-submissions/{id}/
+# Retrieve (GET): http://127.0.0.1:8000/api/work-submissions/{id}/
+# Update (PUT): http://127.0.0.1:8000/api/work-submissions/{id}/
+# Filter (GET): http://127.0.0.1:8000/api/work-submissions/?bill=1&type=1&serial_no=2&unit=kits&quantity=1.00&submission_date=2021-02-07&work_progress=2&created_by=1
+dushanbe_router.register('work-submissions', WorkSubmissionViewSet)
 
 
 # APIView
