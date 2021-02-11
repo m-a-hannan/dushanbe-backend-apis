@@ -5,7 +5,7 @@ from rest_framework import status, viewsets
 from rest_framework.response import Response
 
 # app
-from dushanbe.models import Material
+from dushanbe.models import Type, Material
 from dushanbe.paginations.paginations import CustomPageNumberPagination
 from dushanbe.permissions.common_permissions import DjangoModelPermissionsWithGET
 from dushanbe.serializers.material_serializers import (
@@ -42,6 +42,18 @@ class MaterialViewSet(viewsets.ModelViewSet):
         serializer.is_valid(raise_exception=True)
         self.perform_update(serializer)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def get_queryset(self):
+        # queryset = Type.objects.all()
+        # # print('----', queryset, type(queryset))
+        #
+        # ids = []
+        # for i in queryset:
+        #     ids.append(i.id)
+        #
+        # print('----', ids)
+
+        return self.queryset.filter(type_material__id=1)
 
 
 
