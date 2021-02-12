@@ -51,6 +51,11 @@ class Material(models.Model):
     def short_material_name(self):
         return self.material_name[0:151]
 
+    # for admin list_display only
+    @property
+    def short_bill_name(self):
+        return self.type.bill.short_bill_name
+
 
 # WorkSubmission Table
 class WorkSubmission(models.Model):
