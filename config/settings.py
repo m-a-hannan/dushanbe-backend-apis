@@ -49,6 +49,9 @@ INSTALLED_APPS = [
     # djangorestframework authtoken model
     'rest_framework.authtoken',
 
+    # swagger
+    # 'rest_framework_swagger',
+
     # django-filter
     'django_filters',
 
@@ -164,15 +167,29 @@ REST_FRAMEWORK = {
     #     'rest_framework.authentication.SessionAuthentication',
     # ],
 
+    # schemas
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+
+    # datetime
     'DATE_INPUT_FORMATS': ['%Y-%m-%d'],
     'TIME_INPUT_FORMATS': ['%I:%M %p', 'iso-8601'], # "%H" = 24 hrs, "%I" = 12 hrs
     # 'DATETIME_INPUT_FORMATS': ['%Y-%m-%d %H:%M',],
 
+    # global pagination
     # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     # 'PAGE_SIZE': 20
 
+    # global filter
     # 'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
 
 }
+
+
+# swagger
+# SWAGGER_SETTINGS = {
+#     'LOGIN_URL': 'rest_framework:login',
+#     'LOGOUT_URL': 'rest_framework:logout',
+# }
+
 
 

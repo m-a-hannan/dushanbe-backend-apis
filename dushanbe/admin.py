@@ -61,6 +61,7 @@ class BillAdmin(admin.ModelAdmin):
 class TypeAdmin(admin.ModelAdmin):
     list_display = ['id', 'bill', 'type_name']
     list_display_links = ['id']
+    list_filter = ['bill']
     ordering = ['-id']
 
 
@@ -69,6 +70,7 @@ class TypeAdmin(admin.ModelAdmin):
 class MaterialAdmin(admin.ModelAdmin):
     list_display = ['id', 'type', 'material_name', 'serial_no', 'unit', 'quantity']
     list_display_links = ['id']
+    list_filter = ['type']
     ordering = ['-id']
 
 

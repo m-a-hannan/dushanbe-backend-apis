@@ -20,8 +20,20 @@ from django.conf.urls.static import static
 from django.views.generic import TemplateView
 from rest_framework.authtoken.views import obtain_auth_token
 
+# swagger
+# from rest_framework_swagger.views import get_swagger_view
+
+# schemas
+from rest_framework.documentation import include_docs_urls
+
 # app
 from dushanbe.urls import dushanbe_router
+
+
+# swagger
+# API_TITLE = 'Dushanbe APIs'
+# API_DESCRIPTION = 'Dushanbe API List'
+# schema_view = get_swagger_view(title=API_TITLE)
 
 
 urlpatterns = [
@@ -29,7 +41,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # home
-    path('', TemplateView.as_view(template_name="home.html")),
+    # path('', TemplateView.as_view(template_name="home.html")),
+
+    # swagger (home)
+    # path('', schema_view),
+
+    # schemas (home)
+    path('', include_docs_urls(title='Dushanbe APIs')),
 
     # DRF url
     path('api-auth/', include('rest_framework.urls')),

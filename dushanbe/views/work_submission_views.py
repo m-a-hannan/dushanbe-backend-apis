@@ -5,7 +5,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 # app
 from dushanbe.models import WorkSubmission
-# from dushanbe.filters.filters import WorkSubmissionFilter
+from dushanbe.filters.filters import WorkSubmissionFilter
 from dushanbe.paginations.paginations import CustomPageNumberPagination
 from dushanbe.permissions.common_permissions import DjangoModelPermissionsWithGET
 from dushanbe.serializers.work_submission_serializers import (
@@ -20,13 +20,15 @@ from dushanbe.serializers.work_submission_serializers import (
 # Delete (DELETE): http://127.0.0.1:8000/api/work-submissions/{id}/
 # Retrieve (GET): http://127.0.0.1:8000/api/work-submissions/{id}/
 # Update (PUT): http://127.0.0.1:8000/api/work-submissions/{id}/
-# Filter (GET): http://127.0.0.1:8000/api/work-submissions/?bill=1&type=1&serial_no=2&unit=kits&quantity=1.00&submission_date=2021-02-07&work_progress=2&created_by=1
+# Filter (GET):
+# http://127.0.0.1:8000/api/work-submissions/?
+# id=2&bill=2&type=2&material=2&serial_no=97&unit=kits&quantity=3.69&submission_date=1998-09-22&work_progress=79&created_by=3
 class WorkSubmissionViewSet(viewsets.ModelViewSet):
     queryset = WorkSubmission.objects.all().order_by('-id')
     serializer_class = WorkSubmissionListSerializer
     # permission_classes = (DjangoModelPermissionsWithGET, )
-    # filter_backends = [DjangoFilterBackend]
-    # filterset_class = WorkSubmissionFilter
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = WorkSubmissionFilter
     pagination_class = None
 
     @transaction.atomic

@@ -3,9 +3,11 @@ from django.db import transaction
 from django.utils.text import Truncator
 from rest_framework import status, viewsets
 from rest_framework.response import Response
+from django_filters.rest_framework import DjangoFilterBackend
 
 # app
-from dushanbe.models import Type, Material
+from dushanbe.models import Material
+from dushanbe.filters.filters import MaterialFilter
 from dushanbe.paginations.paginations import CustomPageNumberPagination
 from dushanbe.permissions.common_permissions import DjangoModelPermissionsWithGET
 from dushanbe.serializers.material_serializers import (
@@ -20,10 +22,13 @@ from dushanbe.serializers.material_serializers import (
 # Retrieve (GET): http://127.0.0.1:8000/api/materials/{id}/
 # Update (PUT): http://127.0.0.1:8000/api/materials/{id}/
 # Delete (DELETE): http://127.0.0.1:8000/api/materials/{id}/
+# Filter (GET): http://127.0.0.1:8000/api/materials/?id=1&type=1&serial_no=42&unit=nr&quantity=63.00
 class MaterialViewSet(viewsets.ModelViewSet):
     queryset = Material.objects.all().order_by('-id')
     serializer_class = MaterialListSerializer
     # permission_classes = (DjangoModelPermissionsWithGET, )
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = MaterialFilter
     pagination_class = None
 
     @transaction.atomic
@@ -43,17 +48,7 @@ class MaterialViewSet(viewsets.ModelViewSet):
         self.perform_update(serializer)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-    # def get_queryset(self):
-    #     # queryset = Type.objects.all()
-    #     # # print('----', queryset, type(queryset))
-    #     #
-    #     # ids = []
-    #     # for i in queryset:
-    #     #     ids.append(i.id)
-    #     #
-    #     # print('----', ids)
-    #
-    #     return self.queryset.filter(type_material__id=1)
+
 
 
 
