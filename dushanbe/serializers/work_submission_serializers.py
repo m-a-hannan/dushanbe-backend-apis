@@ -52,7 +52,7 @@ class WorkSubmissionCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = WorkSubmission
-        fields = ('id', 'bill', 'type', 'material', 'submission_date', 'work_progress', 'created_by')
+        fields = ('id', 'bill', 'type', 'material', 'submission_date', 'work_progress', 'created_by', 'active_status')
 
 
 # WorkSubmission Update Serializer
@@ -65,7 +65,7 @@ class WorkSubmissionUpdateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = WorkSubmission
-        fields = ('id', 'bill', 'type', 'material', 'submission_date', 'work_progress', 'created_by')
+        fields = ('id', 'bill', 'type', 'material', 'submission_date', 'work_progress', 'created_by', 'active_status')
 
 
 # WorkSubmission List Serializer
@@ -78,7 +78,7 @@ class WorkSubmissionListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = WorkSubmission
-        fields = ('id', 'bill', 'type', 'material', 'submission_date', 'work_progress', 'created_by')
+        fields = ('id', 'bill', 'type', 'material', 'submission_date', 'work_progress', 'created_by', 'active_status')
 
 
 

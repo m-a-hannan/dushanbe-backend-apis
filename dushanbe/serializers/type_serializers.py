@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from dushanbe.models import Bill, Type, Material
+from dushanbe.models import Bill, Type
 
 
 """ Extra Serializers for This Serializers """

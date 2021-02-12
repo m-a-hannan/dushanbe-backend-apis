@@ -50,7 +50,7 @@ class GroupAdmin(admin.ModelAdmin):
 # Bill
 @admin.register(Bill)
 class BillAdmin(admin.ModelAdmin):
-    list_display = ['id', 'short_bill_name', 'bill_name']
+    list_display = ['id', 'bill_name']
     list_display_links = ['id']
     ordering = ['-id']
     # inlines = [BillSubmissionInline, ]
@@ -59,7 +59,7 @@ class BillAdmin(admin.ModelAdmin):
 # Type
 @admin.register(Type)
 class TypeAdmin(admin.ModelAdmin):
-    list_display = ['id', 'short_bill_name', 'short_type_name', 'type_name']
+    list_display = ['id', 'bill', 'type_name']
     list_display_links = ['id']
     ordering = ['-id']
 
@@ -67,7 +67,7 @@ class TypeAdmin(admin.ModelAdmin):
 # Material
 @admin.register(Material)
 class MaterialAdmin(admin.ModelAdmin):
-    list_display = ['id', 'short_type_name', 'short_material_name', 'material_name', 'serial_no', 'unit', 'quantity']
+    list_display = ['id', 'type', 'material_name', 'serial_no', 'unit', 'quantity']
     list_display_links = ['id']
     ordering = ['-id']
 
@@ -76,13 +76,13 @@ class MaterialAdmin(admin.ModelAdmin):
 @admin.register(WorkSubmission)
 class WorkSubmissionAdmin(admin.ModelAdmin):
     list_display = [
-        'id', 'short_bill_name', 'short_type_name', 'short_material_name', 'serial_no', 'unit', 'quantity',
-        'submission_date', 'work_progress', 'created_by', 'active_status'
+        'id', 'bill', 'type', 'material', 'serial_no', 'unit', 'quantity', 'submission_date', 'work_progress',
+        'created_by', 'active_status'
     ]
+    list_filter = ['bill', 'type', 'material']
     list_editable = ['active_status']
     list_display_links = ['id']
     ordering = ['-id']
-    # list_filter = ['bill', 'type', 'material']
 
 
 

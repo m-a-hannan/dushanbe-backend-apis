@@ -32,13 +32,6 @@ class Type(models.Model):
     def short_type_name(self):
         return self.type_name[0:51]
 
-    @property
-    def short_bill_name(self):
-        try:
-            return self.bill.short_bill_name
-        except:
-            return 'empty'
-
 
 # Material Table
 class Material(models.Model):
@@ -58,13 +51,6 @@ class Material(models.Model):
     def short_material_name(self):
         return self.material_name[0:151]
 
-    @property
-    def short_type_name(self):
-        try:
-            return self.type.short_type_name
-        except:
-            return 'empty'
-
 
 # WorkSubmission Table
 class WorkSubmission(models.Model):
@@ -81,27 +67,6 @@ class WorkSubmission(models.Model):
 
     def __str__(self):
         return self.bill.short_bill_name
-
-    @property
-    def short_bill_name(self):
-        try:
-            return self.bill.short_bill_name
-        except:
-            return 'empty'
-
-    @property
-    def short_type_name(self):
-        try:
-            return self.type.short_type_name
-        except:
-            return 'empty'
-
-    @property
-    def short_material_name(self):
-        try:
-            return self.material.short_material_name
-        except:
-            return 'empty'
 
     @property
     def serial_no(self):
