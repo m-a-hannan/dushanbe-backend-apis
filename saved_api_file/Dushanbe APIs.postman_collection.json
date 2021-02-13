@@ -6,895 +6,1043 @@
 	},
 	"item": [
 		{
-			"name": "Local",
+			"name": "Bill",
 			"item": [
 				{
-					"name": "Bill",
-					"item": [
-						{
-							"name": "Create",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
-										"type": "text",
-										"disabled": true
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"bill_name\": \"Bill No. 3. Section from 6a/Kl+56 to 14/K1 (arable land) length of section 830 m\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/api/bills/",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"bills",
-										""
-									]
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bill_name\": \"Bill_1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							},
-							"response": []
+							}
 						},
-						{
-							"name": "Update",
-							"request": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
-										"type": "text",
-										"disabled": true
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"bill_name\": \" UP Bill No. 3. Section from 6a/Kl+56 to 14/K1 (arable land) length of section 830 m\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/api/bills/3/",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"bills",
-										"3",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "List",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
-										"type": "text",
-										"disabled": true
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"dushanbe_list\": [\r\n    {\r\n      \"Date\": \"2020-01-15\", \r\n      \"Item_Serial_No\": \"2\", \r\n      \"Name_of_work_including_materials\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\", \r\n      \"Quantity\": \"10863\", \r\n      \"Units\": \"kits\", \r\n      \"Work_Done\": \"Yes\"\r\n    }\r\n  ]\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/api/bills/",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"bills",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Delete",
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Authorization",
-										"type": "text",
-										"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
-										"disabled": true
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"dushanbe_list\": [\r\n    {\r\n      \"Date\": \"2020-01-15\", \r\n      \"Item_Serial_No\": \"2\", \r\n      \"Name_of_work_including_materials\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\", \r\n      \"Quantity\": \"10863\", \r\n      \"Units\": \"kits\", \r\n      \"Work_Done\": \"Yes\"\r\n    }\r\n  ]\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/api/bills/1/",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"bills",
-										"1",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Retrive",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"type": "text",
-										"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
-										"disabled": true
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"dushanbe_list\": [\r\n    {\r\n      \"Date\": \"2020-01-15\", \r\n      \"Item_Serial_No\": \"2\", \r\n      \"Name_of_work_including_materials\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\", \r\n      \"Quantity\": \"10863\", \r\n      \"Units\": \"kits\", \r\n      \"Work_Done\": \"Yes\"\r\n    }\r\n  ]\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/api/bills/1/",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"bills",
-										"1",
-										""
-									]
-								}
-							},
-							"response": []
+						"url": {
+							"raw": "{{url}}/api/bills/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"bills",
+								""
+							]
 						}
-					]
+					},
+					"response": []
 				},
 				{
-					"name": "Work Submission",
-					"item": [
-						{
-							"name": "Create",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
-										"type": "text",
-										"disabled": true
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"bill\": 1,\r\n    \"type\": 1,\r\n    \"material\": 1,\r\n    \"tymaterialpe\": 1,\r\n    \"submission_date\": \"2021-02-10\",\r\n    \"work_progress\": 10\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/api/work-submissions/",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"work-submissions",
-										""
-									]
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bill_name\": \" UP Bill No. 3. Section from 6a/Kl+56 to 14/K1 (arable land) length of section 830 m\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							},
-							"response": []
+							}
 						},
-						{
-							"name": "Update",
-							"request": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
-										"type": "text",
-										"disabled": true
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"bill\": 1,\r\n    \"type\": 1,\r\n    \"material\": 1,\r\n    \"tymaterialpe\": 1,\r\n    \"submission_date\": \"2021-02-10\",\r\n    \"work_progress\": 10\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/api/work-submissions/11/",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"work-submissions",
-										"11",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "List",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
-										"type": "text",
-										"disabled": true
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"dushanbe_list\": [\r\n    {\r\n      \"Date\": \"2020-01-15\", \r\n      \"Item_Serial_No\": \"2\", \r\n      \"Name_of_work_including_materials\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\", \r\n      \"Quantity\": \"10863\", \r\n      \"Units\": \"kits\", \r\n      \"Work_Done\": \"Yes\"\r\n    }\r\n  ]\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/api/work-submissions/",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"work-submissions",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Filter",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"type": "text",
-										"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
-										"disabled": true
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"dushanbe_list\": [\r\n    {\r\n      \"Date\": \"2020-01-15\", \r\n      \"Item_Serial_No\": \"2\", \r\n      \"Name_of_work_including_materials\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\", \r\n      \"Quantity\": \"10863\", \r\n      \"Units\": \"kits\", \r\n      \"Work_Done\": \"Yes\"\r\n    }\r\n  ]\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/api/work-submissions/?bill=1&type=1&serial_no=2&unit=kits&quantity=1.00&submission_date=2021-02-07&work_progress=2&created_by=1",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"work-submissions",
-										""
-									],
-									"query": [
-										{
-											"key": "bill",
-											"value": "1"
-										},
-										{
-											"key": "type",
-											"value": "1"
-										},
-										{
-											"key": "serial_no",
-											"value": "2"
-										},
-										{
-											"key": "unit",
-											"value": "kits"
-										},
-										{
-											"key": "quantity",
-											"value": "1.00"
-										},
-										{
-											"key": "submission_date",
-											"value": "2021-02-07"
-										},
-										{
-											"key": "work_progress",
-											"value": "2"
-										},
-										{
-											"key": "created_by",
-											"value": "1"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Delete",
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Authorization",
-										"type": "text",
-										"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
-										"disabled": true
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"dushanbe_list\": [\r\n    {\r\n      \"Date\": \"2020-01-15\", \r\n      \"Item_Serial_No\": \"2\", \r\n      \"Name_of_work_including_materials\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\", \r\n      \"Quantity\": \"10863\", \r\n      \"Units\": \"kits\", \r\n      \"Work_Done\": \"Yes\"\r\n    }\r\n  ]\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/api/work-submissions/11/",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"work-submissions",
-										"11",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Retrive",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"type": "text",
-										"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
-										"disabled": true
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"dushanbe_list\": [\r\n    {\r\n      \"Date\": \"2020-01-15\", \r\n      \"Item_Serial_No\": \"2\", \r\n      \"Name_of_work_including_materials\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\", \r\n      \"Quantity\": \"10863\", \r\n      \"Units\": \"kits\", \r\n      \"Work_Done\": \"Yes\"\r\n    }\r\n  ]\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/api/bill-submissions/11/",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"bill-submissions",
-										"11",
-										""
-									]
-								}
-							},
-							"response": []
+						"url": {
+							"raw": "{{url}}/api/bills/6/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"bills",
+								"6",
+								""
+							]
 						}
-					]
+					},
+					"response": []
 				},
 				{
-					"name": "Type",
-					"item": [
-						{
-							"name": "Create",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
-										"type": "text",
-										"disabled": true
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"bill\": 1,\r\n    \"type_name\": \"type_1\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/api/types/",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"types",
-										""
-									]
+					"name": "List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dushanbe_list\": [\r\n    {\r\n      \"Date\": \"2020-01-15\", \r\n      \"Item_Serial_No\": \"2\", \r\n      \"Name_of_work_including_materials\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\", \r\n      \"Quantity\": \"10863\", \r\n      \"Units\": \"kits\", \r\n      \"Work_Done\": \"Yes\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							},
-							"response": []
+							}
 						},
-						{
-							"name": "Update",
-							"request": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
-										"type": "text",
-										"disabled": true
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"bill\": 2,\r\n    \"type_name\": \"type_1_edited\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/api/types/4/",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"types",
-										"4",
-										""
-									]
+						"url": {
+							"raw": "{{url}}/api/bills/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"bills",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1",
+									"disabled": true
 								}
-							},
-							"response": []
-						},
-						{
-							"name": "List",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
-										"type": "text",
-										"disabled": true
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"dushanbe_list\": [\r\n    {\r\n      \"Date\": \"2020-01-15\", \r\n      \"Item_Serial_No\": \"2\", \r\n      \"Name_of_work_including_materials\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\", \r\n      \"Quantity\": \"10863\", \r\n      \"Units\": \"kits\", \r\n      \"Work_Done\": \"Yes\"\r\n    }\r\n  ]\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/api/types/",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"types",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Delete",
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Authorization",
-										"type": "text",
-										"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
-										"disabled": true
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"dushanbe_list\": [\r\n    {\r\n      \"Date\": \"2020-01-15\", \r\n      \"Item_Serial_No\": \"2\", \r\n      \"Name_of_work_including_materials\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\", \r\n      \"Quantity\": \"10863\", \r\n      \"Units\": \"kits\", \r\n      \"Work_Done\": \"Yes\"\r\n    }\r\n  ]\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/api/types/11/",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"types",
-										"11",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Retrive",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"type": "text",
-										"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
-										"disabled": true
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"dushanbe_list\": [\r\n    {\r\n      \"Date\": \"2020-01-15\", \r\n      \"Item_Serial_No\": \"2\", \r\n      \"Name_of_work_including_materials\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\", \r\n      \"Quantity\": \"10863\", \r\n      \"Units\": \"kits\", \r\n      \"Work_Done\": \"Yes\"\r\n    }\r\n  ]\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/api/types/1/",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"types",
-										"1",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Filter",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"type": "text",
-										"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
-										"disabled": true
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"dushanbe_list\": [\r\n    {\r\n      \"Date\": \"2020-01-15\", \r\n      \"Item_Serial_No\": \"2\", \r\n      \"Name_of_work_including_materials\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\", \r\n      \"Quantity\": \"10863\", \r\n      \"Units\": \"kits\", \r\n      \"Work_Done\": \"Yes\"\r\n    }\r\n  ]\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/api/types/?type_name=Edited&material=3&serial_no=3&unit=nr&quantity=2.00",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"types",
-										""
-									],
-									"query": [
-										{
-											"key": "type_name",
-											"value": "Edited"
-										},
-										{
-											"key": "material",
-											"value": "3"
-										},
-										{
-											"key": "serial_no",
-											"value": "3"
-										},
-										{
-											"key": "unit",
-											"value": "nr"
-										},
-										{
-											"key": "quantity",
-											"value": "2.00"
-										}
-									]
-								}
-							},
-							"response": []
+							]
 						}
-					]
+					},
+					"response": []
 				},
 				{
-					"name": "Material",
-					"item": [
-						{
-							"name": "Create",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
-										"type": "text",
-										"disabled": true
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"material_name\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\",\r\n    \"serial_no\": 1,\r\n    \"unit\": \"kits\",\r\n    \"quantity\": 3.75\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/api/materials/",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"materials",
-										""
-									]
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dushanbe_list\": [\r\n    {\r\n      \"Date\": \"2020-01-15\", \r\n      \"Item_Serial_No\": \"2\", \r\n      \"Name_of_work_including_materials\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\", \r\n      \"Quantity\": \"10863\", \r\n      \"Units\": \"kits\", \r\n      \"Work_Done\": \"Yes\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							},
-							"response": []
+							}
 						},
-						{
-							"name": "Update",
-							"request": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
-										"type": "text",
-										"disabled": true
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"material_name\": \"Cutting of short plants, shrubs and trees along the pipeline route\",\r\n    \"serial_no\": 1,\r\n    \"unit\": \"kits\",\r\n    \"quantity\": 3.75\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/api/materials/11/",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"materials",
-										"11",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "List",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
-										"type": "text",
-										"disabled": true
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"dushanbe_list\": [\r\n    {\r\n      \"Date\": \"2020-01-15\", \r\n      \"Item_Serial_No\": \"2\", \r\n      \"Name_of_work_including_materials\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\", \r\n      \"Quantity\": \"10863\", \r\n      \"Units\": \"kits\", \r\n      \"Work_Done\": \"Yes\"\r\n    }\r\n  ]\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/api/materials/",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"materials",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Delete",
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Authorization",
-										"type": "text",
-										"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
-										"disabled": true
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"dushanbe_list\": [\r\n    {\r\n      \"Date\": \"2020-01-15\", \r\n      \"Item_Serial_No\": \"2\", \r\n      \"Name_of_work_including_materials\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\", \r\n      \"Quantity\": \"10863\", \r\n      \"Units\": \"kits\", \r\n      \"Work_Done\": \"Yes\"\r\n    }\r\n  ]\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/api/materials/11/",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"materials",
-										"11",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Retrive",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"type": "text",
-										"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
-										"disabled": true
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"dushanbe_list\": [\r\n    {\r\n      \"Date\": \"2020-01-15\", \r\n      \"Item_Serial_No\": \"2\", \r\n      \"Name_of_work_including_materials\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\", \r\n      \"Quantity\": \"10863\", \r\n      \"Units\": \"kits\", \r\n      \"Work_Done\": \"Yes\"\r\n    }\r\n  ]\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/api/materials/11/",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"materials",
-										"11",
-										""
-									]
-								}
-							},
-							"response": []
+						"url": {
+							"raw": "{{url}}/api/bills/1/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"bills",
+								"1",
+								""
+							]
 						}
-					]
+					},
+					"response": []
+				},
+				{
+					"name": "Retrive",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dushanbe_list\": [\r\n    {\r\n      \"Date\": \"2020-01-15\", \r\n      \"Item_Serial_No\": \"2\", \r\n      \"Name_of_work_including_materials\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\", \r\n      \"Quantity\": \"10863\", \r\n      \"Units\": \"kits\", \r\n      \"Work_Done\": \"Yes\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/bills/1/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"bills",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dushanbe_list\": [\r\n    {\r\n      \"Date\": \"2020-01-15\", \r\n      \"Item_Serial_No\": \"2\", \r\n      \"Name_of_work_including_materials\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\", \r\n      \"Quantity\": \"10863\", \r\n      \"Units\": \"kits\", \r\n      \"Work_Done\": \"Yes\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/bills/?id=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"bills",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "type",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "material_name",
+									"value": "fjdjsmgdjm",
+									"disabled": true
+								},
+								{
+									"key": "serial_no",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "unit",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "quantity",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Work Submission",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bill\": 1,\r\n    \"type\": 1,\r\n    \"material\": 1,\r\n    \"submission_date\": \"2021-02-10\",\r\n    \"work_progress\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/work-submissions/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"work-submissions",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bill\": 2,\r\n    \"type\": 2,\r\n    \"material\": 2,\r\n    \"submission_date\": \"2021-02-10\",\r\n    \"work_progress\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/work-submissions/7/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"work-submissions",
+								"7",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dushanbe_list\": [\r\n    {\r\n      \"Date\": \"2020-01-15\", \r\n      \"Item_Serial_No\": \"2\", \r\n      \"Name_of_work_including_materials\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\", \r\n      \"Quantity\": \"10863\", \r\n      \"Units\": \"kits\", \r\n      \"Work_Done\": \"Yes\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/work-submissions/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"work-submissions",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dushanbe_list\": [\r\n    {\r\n      \"Date\": \"2020-01-15\", \r\n      \"Item_Serial_No\": \"2\", \r\n      \"Name_of_work_including_materials\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\", \r\n      \"Quantity\": \"10863\", \r\n      \"Units\": \"kits\", \r\n      \"Work_Done\": \"Yes\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/work-submissions/?id=2&bill=2&type=2&material=2&serial_no=97&unit=kits&quantity=3.69&submission_date=1998-09-22&work_progress=79&created_by=3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"work-submissions",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								},
+								{
+									"key": "bill",
+									"value": "2"
+								},
+								{
+									"key": "type",
+									"value": "2"
+								},
+								{
+									"key": "material",
+									"value": "2"
+								},
+								{
+									"key": "serial_no",
+									"value": "97"
+								},
+								{
+									"key": "unit",
+									"value": "kits"
+								},
+								{
+									"key": "quantity",
+									"value": "3.69"
+								},
+								{
+									"key": "submission_date",
+									"value": "1998-09-22"
+								},
+								{
+									"key": "work_progress",
+									"value": "79"
+								},
+								{
+									"key": "created_by",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dushanbe_list\": [\r\n    {\r\n      \"Date\": \"2020-01-15\", \r\n      \"Item_Serial_No\": \"2\", \r\n      \"Name_of_work_including_materials\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\", \r\n      \"Quantity\": \"10863\", \r\n      \"Units\": \"kits\", \r\n      \"Work_Done\": \"Yes\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/work-submissions/11/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"work-submissions",
+								"11",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrive",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dushanbe_list\": [\r\n    {\r\n      \"Date\": \"2020-01-15\", \r\n      \"Item_Serial_No\": \"2\", \r\n      \"Name_of_work_including_materials\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\", \r\n      \"Quantity\": \"10863\", \r\n      \"Units\": \"kits\", \r\n      \"Work_Done\": \"Yes\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/bill-submissions/11/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"bill-submissions",
+								"11",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Type",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bill\": 1,\r\n    \"type_name\": \"type_1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/types/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"types",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bill\": 2,\r\n    \"type_name\": \"type_1_edited\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/types/6/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"types",
+								"6",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dushanbe_list\": [\r\n    {\r\n      \"Date\": \"2020-01-15\", \r\n      \"Item_Serial_No\": \"2\", \r\n      \"Name_of_work_including_materials\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\", \r\n      \"Quantity\": \"10863\", \r\n      \"Units\": \"kits\", \r\n      \"Work_Done\": \"Yes\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/types/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"types",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dushanbe_list\": [\r\n    {\r\n      \"Date\": \"2020-01-15\", \r\n      \"Item_Serial_No\": \"2\", \r\n      \"Name_of_work_including_materials\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\", \r\n      \"Quantity\": \"10863\", \r\n      \"Units\": \"kits\", \r\n      \"Work_Done\": \"Yes\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/types/11/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"types",
+								"11",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrive",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dushanbe_list\": [\r\n    {\r\n      \"Date\": \"2020-01-15\", \r\n      \"Item_Serial_No\": \"2\", \r\n      \"Name_of_work_including_materials\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\", \r\n      \"Quantity\": \"10863\", \r\n      \"Units\": \"kits\", \r\n      \"Work_Done\": \"Yes\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/types/1/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"types",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dushanbe_list\": [\r\n    {\r\n      \"Date\": \"2020-01-15\", \r\n      \"Item_Serial_No\": \"2\", \r\n      \"Name_of_work_including_materials\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\", \r\n      \"Quantity\": \"10863\", \r\n      \"Units\": \"kits\", \r\n      \"Work_Done\": \"Yes\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/types/?id=1&bill=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"types",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "bill",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Material",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": 1,\r\n    \"material_name\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\",\r\n    \"serial_no\": 1,\r\n    \"unit\": \"kits\",\r\n    \"quantity\": 3.75\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/materials/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"materials",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": 2,\r\n    \"material_name\": \"Cutting of short plants, shrubs and trees along the pipeline route\",\r\n    \"serial_no\": 1,\r\n    \"unit\": \"kits\",\r\n    \"quantity\": 3.75\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/materials/7/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"materials",
+								"7",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dushanbe_list\": [\r\n    {\r\n      \"Date\": \"2020-01-15\", \r\n      \"Item_Serial_No\": \"2\", \r\n      \"Name_of_work_including_materials\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\", \r\n      \"Quantity\": \"10863\", \r\n      \"Units\": \"kits\", \r\n      \"Work_Done\": \"Yes\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/materials/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"materials",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dushanbe_list\": [\r\n    {\r\n      \"Date\": \"2020-01-15\", \r\n      \"Item_Serial_No\": \"2\", \r\n      \"Name_of_work_including_materials\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\", \r\n      \"Quantity\": \"10863\", \r\n      \"Units\": \"kits\", \r\n      \"Work_Done\": \"Yes\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/materials/11/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"materials",
+								"11",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrive",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dushanbe_list\": [\r\n    {\r\n      \"Date\": \"2020-01-15\", \r\n      \"Item_Serial_No\": \"2\", \r\n      \"Name_of_work_including_materials\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\", \r\n      \"Quantity\": \"10863\", \r\n      \"Units\": \"kits\", \r\n      \"Work_Done\": \"Yes\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/materials/11/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"materials",
+								"11",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Token b5f62fcb426490b876fe1f093af6e21924f0e61d",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dushanbe_list\": [\r\n    {\r\n      \"Date\": \"2020-01-15\", \r\n      \"Item_Serial_No\": \"2\", \r\n      \"Name_of_work_including_materials\": \"Marking of the pipeline route with paint, including inventory of existing underground engineering communications (such as pipes and cables of other networks)\", \r\n      \"Quantity\": \"10863\", \r\n      \"Units\": \"kits\", \r\n      \"Work_Done\": \"Yes\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/materials/?id=1&type=1&serial_no=42&unit=nr&quantity=63.00",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"materials",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "type",
+									"value": "1"
+								},
+								{
+									"key": "serial_no",
+									"value": "42"
+								},
+								{
+									"key": "unit",
+									"value": "nr"
+								},
+								{
+									"key": "quantity",
+									"value": "63.00"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
