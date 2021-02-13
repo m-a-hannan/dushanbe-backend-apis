@@ -28,6 +28,7 @@ from rest_framework.documentation import include_docs_urls
 
 # app
 from dushanbe.urls import dushanbe_router
+from dushanbe_auth.urls import dushanbe_auth_router
 
 
 # swagger
@@ -39,14 +40,14 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # home
-    # path('', TemplateView.as_view(template_name="home.html")),
+    path('', TemplateView.as_view(template_name="home.html")),
 
     # swagger (home)
     # path('', schema_view),
     # path('', include_docs_urls(title='Dushanbe API Documentation')),
 
     # schemas (home)
-    path('', include_docs_urls(title='Dushanbe API Documentation')),
+    # path('', include_docs_urls(title='Dushanbe API Documentation')),
 
     # DRF url
     path('api-auth/', include('rest_framework.urls')),
@@ -56,9 +57,11 @@ urlpatterns = [
 
     # app routers
     path('api/', include(dushanbe_router.urls)),
+    path('api/', include(dushanbe_auth_router.urls)),
 
     # app urls
     path('api/', include('dushanbe.urls')),
+    path('api/', include('dushanbe_auth.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

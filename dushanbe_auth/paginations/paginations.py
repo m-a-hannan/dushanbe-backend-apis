@@ -21,5 +21,3 @@ class CustomPageNumberPagination(PageNumberPagination):
         return page_number
 
 
-
-
