@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from rest_framework.validators import UniqueValidator
-from django.contrib.auth.models import Permission, Group
+from django.contrib.auth.models import Permission
 from django.contrib.contenttypes.models import ContentType
 
 
@@ -27,7 +26,7 @@ class PermissionSerializer(serializers.ModelSerializer):
 """ This Serializers """
 
 
-# User Login response serializers (HR)
+# User login response serializers
 class UserLoginResponseSerializer(serializers.ModelSerializer):
     user_permissions = PermissionSerializer(many=True)
 

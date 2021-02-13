@@ -1,16 +1,10 @@
+from rest_framework import status
 from rest_framework.views import APIView
 from django.contrib.auth.models import User
-from rest_framework import status, viewsets
 from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.views import ObtainAuthToken
-from django_filters.rest_framework import DjangoFilterBackend
-
-# app
-# from dushanbe_auth.filters.filters import UserFilter
-from dushanbe_auth.serializers.user_serializers import (
-    UserLoginResponseSerializer
-)
+from dushanbe_auth.serializers.user_serializers import UserLoginResponseSerializer
 
 
 # Login (POST) (No Token): http://127.0.0.1:8000/api/login/

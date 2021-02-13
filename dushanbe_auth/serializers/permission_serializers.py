@@ -3,11 +3,17 @@ from django.contrib.auth.models import Permission
 from django.contrib.contenttypes.models import ContentType
 
 
+""" Extra Serializers for This Serializers """
+
+
 # ContentType serializers
 class ContentTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = ContentType
         fields = ('app_label', 'model')
+
+
+""" This Serializers """
 
 
 # Permission serializers

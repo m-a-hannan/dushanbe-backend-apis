@@ -1,4 +1,4 @@
-from rest_framework import status, viewsets
+from rest_framework import viewsets
 from django.contrib.auth.models import Permission
 from dushanbe_auth.serializers.permission_serializers import PermissionSerializer
 from dushanbe_auth.permissions.common_permissions import DjangoModelPermissionsWithGET

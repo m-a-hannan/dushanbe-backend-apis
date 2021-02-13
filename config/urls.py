@@ -24,7 +24,7 @@ from rest_framework.authtoken.views import obtain_auth_token
 # from rest_framework_swagger.views import get_swagger_view
 
 # schemas + swagger
-from rest_framework.documentation import include_docs_urls
+# from rest_framework.documentation import include_docs_urls
 
 # app
 from dushanbe.urls import dushanbe_router

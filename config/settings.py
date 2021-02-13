@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
 
     # swagger
-    # 'rest_framework_swagger',
+    'rest_framework_swagger',
 
     # django-filter
     'django_filters',
