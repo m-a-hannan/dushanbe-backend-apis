@@ -81,7 +81,7 @@ class WorkSubmissionAdmin(admin.ModelAdmin):
         'id', 'bill', 'type', 'material', 'serial_no', 'unit', 'quantity', 'submission_date', 'work_progress',
         'created_by', 'active_status'
     ]
-    list_filter = ['bill', 'type', 'material']
+    list_filter = ['created_by', 'bill', 'type', 'material']
     list_editable = ['active_status']
     list_display_links = ['id']
     ordering = ['-id']

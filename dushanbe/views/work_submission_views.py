@@ -27,6 +27,8 @@ class WorkSubmissionViewSet(viewsets.ModelViewSet):
     queryset = WorkSubmission.objects.all().order_by('-id')
     serializer_class = WorkSubmissionListSerializer
     permission_classes = (DjangoModelPermissionsWithGET, )
+    # authentication_classes = []
+    # permission_classes = []
     filter_backends = [DjangoFilterBackend]
     filterset_class = WorkSubmissionFilter
     pagination_class = None
