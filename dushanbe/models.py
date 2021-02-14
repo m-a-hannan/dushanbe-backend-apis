@@ -54,7 +54,10 @@ class Material(models.Model):
     # for admin list_display only
     @property
     def short_bill_name(self):
-        return self.type.bill.short_bill_name
+        try:
+            return self.type.bill.short_bill_name
+        except:
+            return 'empty'
 
 
 # WorkSubmission Table
