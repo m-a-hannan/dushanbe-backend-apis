@@ -74,7 +74,7 @@ class WorkSubmission(models.Model):
 
     class Meta:
         verbose_name_plural = 'Work Submissions'
-        unique_together = ['bill', 'type', 'material']
+        unique_together = ['bill', 'type']
 
     def __str__(self):
         return self.bill.short_bill_name
