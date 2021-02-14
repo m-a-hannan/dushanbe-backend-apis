@@ -24,6 +24,7 @@ class Type(models.Model):
 
     class Meta:
         verbose_name_plural = 'Types'
+        unique_together = ['bill', 'type_name']
 
     def __str__(self):
         return self.type_name
@@ -43,6 +44,7 @@ class Material(models.Model):
 
     class Meta:
         verbose_name_plural = 'Materials'
+        unique_together = ['type', 'material_name']
 
     def __str__(self):
         return self.material_name
@@ -72,6 +74,7 @@ class WorkSubmission(models.Model):
 
     class Meta:
         verbose_name_plural = 'Work Submissions'
+        unique_together = ['bill', 'type', 'material']
 
     def __str__(self):
         return self.bill.short_bill_name
