@@ -48,7 +48,7 @@ class WorkSubmissionCreateSerializer(serializers.ModelSerializer):
     type = serializers.PrimaryKeyRelatedField(many=False, queryset=Type.objects.all())
     material = serializers.PrimaryKeyRelatedField(many=False, queryset=Material.objects.all())
     submission_date = serializers.DateField(format="%Y-%m-%d")
-    work_progress = serializers.IntegerField(default=0)
+    work_progress = serializers.DecimalField(max_digits=8, decimal_places=2)
 
     class Meta:
         model = WorkSubmission
@@ -61,7 +61,7 @@ class WorkSubmissionUpdateSerializer(serializers.ModelSerializer):
     type = serializers.PrimaryKeyRelatedField(required=False, many=False, queryset=Type.objects.all())
     material = serializers.PrimaryKeyRelatedField(required=False, many=False, queryset=Material.objects.all())
     submission_date = serializers.DateField(required=False, format="%Y-%m-%d")
-    work_progress = serializers.IntegerField(required=False, default=0)
+    work_progress = serializers.DecimalField(required=False, max_digits=8, decimal_places=2)
 
     class Meta:
         model = WorkSubmission

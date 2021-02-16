@@ -79,7 +79,7 @@ def populate(n):
             type=type,
             material=material,
             submission_date=fake_data.date(),
-            work_progress=random.randint(0, 100),
+            work_progress=decimal.Decimal(random.randrange(155, 389)) / 100,
             created_by=user
         )
 

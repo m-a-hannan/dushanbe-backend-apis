@@ -68,7 +68,7 @@ class WorkSubmission(models.Model):
     type = models.ForeignKey(Type, on_delete=models.SET_NULL, null=True, related_name='workubmission_type')
     material = models.ForeignKey(Material, on_delete=models.SET_NULL, null=True, related_name='workubmission_material')
     submission_date = models.DateField(editable=True, blank=True, null=True)
-    work_progress = models.PositiveIntegerField(default=0, blank=True, null=True)
+    work_progress = models.DecimalField(max_digits=8, decimal_places=2, blank=True, null=True)
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='workubmission_created_by')
     active_status = models.BooleanField(default=True, blank=True, null=True)
 
