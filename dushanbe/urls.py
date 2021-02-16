@@ -4,6 +4,7 @@ from dushanbe.views.bill_views import BillViewSet
 from dushanbe.views.type_views import TypeViewSet
 from dushanbe.views.materials_views import MaterialViewSet
 from dushanbe.views.work_submission_views import WorkSubmissionViewSet
+from dushanbe.views.sharepoint.share_point_views import SharePointView
 
 
 # ModelViewSet router
@@ -54,6 +55,11 @@ dushanbe_router.register('work-submissions', WorkSubmissionViewSet)
 
 # APIView
 urlpatterns = [
+
+    # -------------------- SharePoint Testing --------------------
+
+    # http://127.0.0.1:8000/api/sharepoint/
+    path('sharepoint/', SharePointView.as_view())
 
 ]
 
