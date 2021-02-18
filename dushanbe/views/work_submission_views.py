@@ -31,7 +31,7 @@ class WorkSubmissionViewSet(viewsets.ModelViewSet):
     # permission_classes = []
     filter_backends = [DjangoFilterBackend]
     filterset_class = WorkSubmissionFilter
-    pagination_class = None
+    pagination_class = CustomPageNumberPagination
 
     @transaction.atomic
     def create(self, request, *args, **kwargs):

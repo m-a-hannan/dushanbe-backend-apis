@@ -9,33 +9,43 @@ from dushanbe.serializers.sharepoint.share_point_serializers import SharePointSe
 
 # http://127.0.0.1:8000/api/sharepoint/
 class SharePointView(APIView):
+
+    def post(self, request):
+        return Response({"data": "posted"}, status=status.HTTP_201_CREATED)
+
     def get(self, request):
         sharepointUsername = "Bangladesh.IT1@ludwigpfeiffer.com"
-        print('----', sharepointUsername)
+        # print('----', sharepointUsername)
 
         sharepointPassword = "A%vhTlN90Z%M"
-        print('----', sharepointPassword)
+        # print('----', sharepointPassword)
 
         sharepointSite = "https://ludwpfeiffer.sharepoint.com/sites/PfeifferDhaka"
-        print('----', sharepointSite)
+        # print('----', sharepointSite)
 
         website = "https://ludwpfeiffer.sharepoint.com"
-        print('----', website)
+        # print('----', website)
 
         authcookie = Office365(website, username=sharepointUsername, password=sharepointPassword).GetCookies()
-        print('----', authcookie)
+        # print('----', authcookie)
 
         site = Site(sharepointSite, version=Version.v2016, authcookie=authcookie)
-        print('----', site)
+        # print('----', site)
 
         set_list = site.List('python_sync')
-        print('----', set_list)
+        # print('----', set_list)
 
         share_data = set_list.GetListItems('All Items')  # this will retrieve all items from list
-        print('----', share_data)
+        # print('----', share_data)
 
-        data = []
+        data = {}
+        list_data = []
 
-        response_serializer = SharePointSerializer(share_data, many=True)
+        for item in share_data:
+            print('----', item)
+            for k, v in item.items():
+                print('{}: {}'.format(k, v))
 
-        return Response(response_serializer.data, status=status.HTTP_200_OK)
+        # response_serializer = SharePointSerializer(share_data, many=True)
+
+        return Response({"data": "OK"}, status=status.HTTP_200_OK)
