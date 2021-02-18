@@ -26,8 +26,8 @@ SECRET_KEY = 'h^kkxi)b7n*pkuuw8kxtcs@$91*n$6e^^ely7#=34$+ys*2l*t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'jahidmsk.pythonanywhere.com', 'dushanbe-frontend-vuejs.herokuapp.com']
-# ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'jahidmsk.pythonanywhere.com', 'dushanbe-frontend-vuejs.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
