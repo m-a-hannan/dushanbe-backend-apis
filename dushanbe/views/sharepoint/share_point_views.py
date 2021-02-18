@@ -10,7 +10,7 @@ from dushanbe.serializers.sharepoint.share_point_serializers import SharePointSe
 # Accessing Data from SharePoint DB
 class SharePointView(APIView):
 
-    # POST : http://127.0.0.1:8000/api/sharepoint/
+    # POST (Testing): http://127.0.0.1:8000/api/sharepoint/
     def post(self, request):
         sharepoint_username = "Bangladesh.IT1@ludwigpfeiffer.com"
         sharepoint_password = "A%vhTlN90Z%M"
@@ -18,24 +18,34 @@ class SharePointView(APIView):
         sharepoint_website = "https://ludwpfeiffer.sharepoint.com"
         sharepoint_authcookie = Office365(sharepoint_website, username=sharepoint_username, password=sharepoint_password).GetCookies()
         site = Site(sharepoint_url, version=Version.v2016, authcookie=sharepoint_authcookie)
-        # sharepoint_list_directory = site.List('python_sync') # Jahid
-        sharepoint_list_directory = site.List('Dushanbe API Data (Testing)') # Siyam
+        sharepoint_list_directory = site.List('python_sync') # Jahid
+        # sharepoint_list_directory = site.List('Dushanbe API Data (Testing)') # Siyam
 
+        # # Siyam
+        # data = [
+        #     {
+        #         "Bill Name": request.data["bill"],
+        #         "Type Name": request.data["type"],
+        #         "Material Name": request.data["material"],
+        #         "Submission Date": request.data["submission_date"],
+        #         "Work Progress": request.data["work_progress"],
+        #         # "CreatedBy": request.data['Work Done'],
+        #         # "Active Status": request.data['Work Done']
+        #     }
+        # ]
+
+        # Jahid
         data = [
             {
-                "Bill Name": request.data["bill"],
-                "Type Name": request.data["type"],
-                "Material Name": request.data["material"],
-                "Submission Date": request.data["submission_date"],
-                "Work Progress": request.data["work_progress"],
-                # "CreatedBy": request.data['Work Done'],
-                # "Active Status": request.data['Work Done']
+                "Item Serial No": request.data["Item Serial No"],
+                "Name of work including materials": request.data["Name of work including materials"],
+                "Units": request.data["Units"],
+                "Quantity": request.data["Quantity"],
+                "Date": request.data["Date"],
+                "Work Done": request.data["Work Done"]
             }
         ]
 
-        print('--data--', data)
-
-        # POST (UpdateListItems)
         obj = sharepoint_list_directory.UpdateListItems(data=data, kind='New')
 
         print('--obj--', obj)

@@ -21,6 +21,7 @@ from dushanbe.serializers.work_submission_serializers import (
 
 
 # Create (POST): http://127.0.0.1:8000/api/work-submissions/
+# SharePoint Data (POST) : http://127.0.0.1:8000/api/sharepoint/
 # List (GET): http://127.0.0.1:8000/api/work-submissions/
 # Delete (DELETE): http://127.0.0.1:8000/api/work-submissions/{id}/
 # Retrieve (GET): http://127.0.0.1:8000/api/work-submissions/{id}/
@@ -42,15 +43,15 @@ class WorkSubmissionViewSet(viewsets.ModelViewSet):
         serializer.is_valid(raise_exception=True)
         work_submission_obj = serializer.save()
 
-        ## sharepoint config
+        # SharePoint config
         sharepoint_username = "Bangladesh.IT1@ludwigpfeiffer.com"
         sharepoint_password = "A%vhTlN90Z%M"
         sharepoint_url = "https://ludwpfeiffer.sharepoint.com/sites/PfeifferDhaka"
         sharepoint_website = "https://ludwpfeiffer.sharepoint.com"
         sharepoint_authcookie = Office365(sharepoint_website, username=sharepoint_username, password=sharepoint_password).GetCookies()
         site = Site(sharepoint_url, version=Version.v2016, authcookie=sharepoint_authcookie)
-        # sharepoint_list_directory = site.List('python_sync')
-        sharepoint_list_directory = site.List('Dushanbe API Data (Testing)')
+        # sharepoint_list_directory = site.List('python_sync') # Jahid
+        sharepoint_list_directory = site.List('Dushanbe API Data (Testing)') # Siyam
 
         sharepoint_data = [
             {
@@ -59,25 +60,17 @@ class WorkSubmissionViewSet(viewsets.ModelViewSet):
                 "Material Name": work_submission_obj.material.material_name,
                 "Submission Date": work_submission_obj.submission_date,
                 "Work Progress": work_submission_obj.work_progress,
-                # "CreatedBy": work_submission_obj.created_by,
+                # "CreatedBy": work_submission_obj.created_by.username,
                 # "Active Status": work_submission_obj.active_status
             }
         ]
 
-        # sharepoint_obj = sharepoint_list_directory.CreateListItems(data=data, kind='New')
         sharepoint_obj = sharepoint_list_directory.UpdateListItems(data=sharepoint_data, kind='New')
         print('--sharepoint_obj--', sharepoint_obj)
-        ## sharepoint config end
+        # SharePoint config end
 
         headers = self.get_success_headers(serializer.data)
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
-
-        # original
-        # serializer = WorkSubmissionCreateSerializer(data=request.data)
-        # serializer.is_valid(raise_exception=True)
-        # self.perform_create(serializer)
-        # headers = self.get_success_headers(serializer.data)
-        # return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
     @transaction.atomic
     def update(self, request, *args, **kwargs):
