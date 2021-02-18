@@ -9,8 +9,8 @@ from shareplum import Office365
 from shareplum.site import Version
 
 # app
+from dushanbe.models import WorkSubmission
 from dushanbe.filters.filters import WorkSubmissionFilter
-from dushanbe.models import Bill, Type, Material, WorkSubmission
 from dushanbe.paginations.paginations import CustomPageNumberPagination
 from dushanbe.permissions.common_permissions import DjangoModelPermissionsWithGET
 from dushanbe.serializers.work_submission_serializers import (
@@ -32,11 +32,9 @@ class WorkSubmissionViewSet(viewsets.ModelViewSet):
     queryset = WorkSubmission.objects.all().order_by('-id')
     serializer_class = WorkSubmissionListSerializer
     permission_classes = (DjangoModelPermissionsWithGET, )
-    # authentication_classes = []
-    # permission_classes = []
     filter_backends = [DjangoFilterBackend]
     filterset_class = WorkSubmissionFilter
-    pagination_class = None
+    pagination_class = CustomPageNumberPagination
 
     @transaction.atomic
     def create(self, request, *args, **kwargs):
