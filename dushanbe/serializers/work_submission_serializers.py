@@ -11,7 +11,7 @@ from dushanbe.models import Bill, Material, Type, WorkSubmission
 class BillSerializer(serializers.ModelSerializer):
     class Meta:
         model = Bill
-        fields = ('id', 'short_bill_name')
+        fields = ('id', 'short_bill_name', 'bill_name')
 
 
 # Type Serializer
@@ -20,7 +20,7 @@ class TypeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Type
-        fields = ('id', 'bill', 'short_type_name')
+        fields = ('id', 'bill', 'short_type_name', 'type_name')
 
 
 # Material Serializer
@@ -29,7 +29,7 @@ class MaterialSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Material
-        fields = ('id', 'type', 'short_material_name', 'serial_no', 'unit', 'quantity')
+        fields = ('id', 'type', 'short_material_name', 'serial_no', 'unit', 'quantity', 'material_name')
 
 
 # User Serializer

@@ -58,7 +58,7 @@ urlpatterns = [
 
     # -------------------- SharePoint Testing --------------------
 
-    # http://127.0.0.1:8000/api/sharepoint/
+    # GET & POST: http://127.0.0.1:8000/api/sharepoint/
     path('sharepoint/', SharePointView.as_view())
 
 ]

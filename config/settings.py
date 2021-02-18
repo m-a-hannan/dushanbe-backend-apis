@@ -26,9 +26,8 @@ SECRET_KEY = 'h^kkxi)b7n*pkuuw8kxtcs@$91*n$6e^^ely7#=34$+ys*2l*t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'jahidmsk.pythonanywhere.com', 'dushanbe-frontend-vuejs.herokuapp.com']
-# ALLOWED_HOSTS = ['*']
-
+# ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'jahidmsk.pythonanywhere.com', 'dushanbe-frontend-vuejs.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 INSTALLED_APPS = [
@@ -65,6 +64,10 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+
+    # heroku
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
     'django.contrib.sessions.middleware.SessionMiddleware',
 
     # django-cors-headers
@@ -204,6 +207,7 @@ REST_FRAMEWORK = {
 #     'LOGIN_URL': 'rest_framework:login',
 #     'LOGOUT_URL': 'rest_framework:logout',
 # }
+
 
 
 

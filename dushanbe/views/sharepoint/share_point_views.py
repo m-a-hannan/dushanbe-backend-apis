@@ -7,45 +7,72 @@ from rest_framework.response import Response
 from dushanbe.serializers.sharepoint.share_point_serializers import SharePointSerializer
 
 
-# http://127.0.0.1:8000/api/sharepoint/
+# Accessing Data from SharePoint DB
 class SharePointView(APIView):
 
+    # POST (Testing): http://127.0.0.1:8000/api/sharepoint/
     def post(self, request):
-        return Response({"data": "posted"}, status=status.HTTP_201_CREATED)
+        sharepoint_username = "Bangladesh.IT1@ludwigpfeiffer.com"
+        sharepoint_password = "A%vhTlN90Z%M"
+        sharepoint_url = "https://ludwpfeiffer.sharepoint.com/sites/PfeifferDhaka"
+        sharepoint_website = "https://ludwpfeiffer.sharepoint.com"
+        sharepoint_authcookie = Office365(sharepoint_website, username=sharepoint_username,
+                                          password=sharepoint_password).GetCookies()
+        site = Site(sharepoint_url, version=Version.v2016, authcookie=sharepoint_authcookie)
+        # sharepoint_list_directory = site.List('python_sync') # Jahid
+        sharepoint_list_directory = site.List('dushanbe_api_testing')  # Siyam
 
+        # Siyam
+        data = [
+            {
+                "serial no": request.data["serial no"],
+                "bill": request.data["bill"],
+                "type": request.data["type"],
+                "material": request.data["material"],
+                "unit": request.data["unit"],
+                "quantity": request.data["quantity"],
+                "created_by": request.data['created_by'],
+                "work_progress": request.data["work_progress"],
+                "active_status": request.data['active_status'],
+                "submission_date": request.data["submission_date"]
+
+            }
+        ]
+
+        # Jahid
+        # data = [
+        #     {
+        #         "Item Serial No": request.data["Item Serial No"],
+        #         "Name of work including materials": request.data["Name of work including materials"],
+        #         "Units": request.data["Units"],
+        #         "Quantity": request.data["Quantity"],
+        #         "Date": request.data["Date"],
+        #         "Work Done": request.data["Work Done"]
+        #     }
+        # ]
+
+        obj = sharepoint_list_directory.UpdateListItems(data=data, kind='New')
+
+        print('--obj--', obj)
+
+        return Response({"data": data}, status=status.HTTP_200_OK)
+
+    # GET : http://127.0.0.1:8000/api/sharepoint/
     def get(self, request):
-        sharepointUsername = "Bangladesh.IT1@ludwigpfeiffer.com"
-        # print('----', sharepointUsername)
+        sharepoint_username = "Bangladesh.IT1@ludwigpfeiffer.com"
+        sharepoint_password = "A%vhTlN90Z%M"
+        sharepoint_url = "https://ludwpfeiffer.sharepoint.com/sites/PfeifferDhaka"
+        sharepoint_website = "https://ludwpfeiffer.sharepoint.com"
+        sharepoint_authcookie = Office365(sharepoint_website, username=sharepoint_username,
+                                          password=sharepoint_password).GetCookies()
+        site = Site(sharepoint_url, version=Version.v2016, authcookie=sharepoint_authcookie)
+        sharepoint_list_directory = site.List('python_sync')  # Jahid
+        # sharepoint_list_directory = site.List('Dushanbe API Data (Testing)') # Siyam
+        sharepoint_data = sharepoint_list_directory.GetListItems('All Items')
 
-        sharepointPassword = "A%vhTlN90Z%M"
-        # print('----', sharepointPassword)
+        data = []
 
-        sharepointSite = "https://ludwpfeiffer.sharepoint.com/sites/PfeifferDhaka"
-        # print('----', sharepointSite)
+        for item in sharepoint_data:
+            data.append(item)
 
-        website = "https://ludwpfeiffer.sharepoint.com"
-        # print('----', website)
-
-        authcookie = Office365(website, username=sharepointUsername, password=sharepointPassword).GetCookies()
-        # print('----', authcookie)
-
-        site = Site(sharepointSite, version=Version.v2016, authcookie=authcookie)
-        # print('----', site)
-
-        set_list = site.List('python_sync')
-        # print('----', set_list)
-
-        share_data = set_list.GetListItems('All Items')  # this will retrieve all items from list
-        # print('----', share_data)
-
-        data = {}
-        list_data = []
-
-        for item in share_data:
-            print('----', item)
-            for k, v in item.items():
-                print('{}: {}'.format(k, v))
-
-        # response_serializer = SharePointSerializer(share_data, many=True)
-
-        return Response({"data": "OK"}, status=status.HTTP_200_OK)
+        return Response({"data": data}, status=status.HTTP_200_OK)
