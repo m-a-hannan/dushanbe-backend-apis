@@ -26,11 +26,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'h^kkxi)b7n*pkuuw8kxtcs@$91*n$6e^^ely7#=34$+ys*2l*t'
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 # ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'jahidmsk.pythonanywhere.com', 'dushanbe-frontend-vuejs.herokuapp.com']
 ALLOWED_HOSTS = ['*']
+
 
 # Application definition
 INSTALLED_APPS = [
@@ -65,6 +68,7 @@ INSTALLED_APPS = [
 
 ]
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -79,10 +83,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
 # django-cors-headers
 CORS_ORIGIN_ALLOW_ALL = True
 
+
 ROOT_URLCONF = 'config.urls'
+
 
 TEMPLATES = [
     {
@@ -100,11 +107,18 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'config.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+
+# Heroku PostgreSQl config
+DATABASES = {
+    'default': dj_database_url.config(conn_max_age=500)
+}
+
 
 # SQLite3 config
 # DATABASES = {
@@ -113,12 +127,6 @@ WSGI_APPLICATION = 'config.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-
-
-# heroku
-DATABASES = {
-    'default': dj_database_url.config(conn_max_age=500)
-}
 
 
 # # PostgreSQL config
@@ -177,6 +185,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+
 # DRF
 REST_FRAMEWORK = {
 
@@ -205,6 +214,7 @@ REST_FRAMEWORK = {
     # 'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
 
 }
+
 
 # swagger
 # SWAGGER_SETTINGS = {
