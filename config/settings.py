@@ -13,7 +13,10 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import os
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# heroku
+import dj_database_url
+
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -64,10 +67,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-
-    # heroku
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-
     'django.contrib.sessions.middleware.SessionMiddleware',
 
     # django-cors-headers
@@ -108,11 +107,17 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 # SQLite3 config
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+
+# heroku
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(conn_max_age=500)
 }
 
 
@@ -201,12 +206,14 @@ REST_FRAMEWORK = {
 
 }
 
-
 # swagger
 # SWAGGER_SETTINGS = {
 #     'LOGIN_URL': 'rest_framework:login',
 #     'LOGOUT_URL': 'rest_framework:logout',
 # }
+
+
+
 
 
 
