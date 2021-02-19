@@ -63,10 +63,8 @@ urlpatterns = [
     path('api/', include('dushanbe.urls')),
     path('api/', include('dushanbe_auth.urls')),
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-# heroku (for displaying django admin panel design)
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
 
