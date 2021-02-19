@@ -50,23 +50,24 @@ class WorkSubmissionViewSet(viewsets.ModelViewSet):
         sharepoint_website = "https://ludwpfeiffer.sharepoint.com"
         sharepoint_authcookie = Office365(sharepoint_website, username=sharepoint_username, password=sharepoint_password).GetCookies()
         site = Site(sharepoint_url, version=Version.v2016, authcookie=sharepoint_authcookie)
-        # sharepoint_list_directory = site.List('python_sync') # Jahid
-        sharepoint_list_directory = site.List('Dushanbe API Data (Testing)') # Siyam
+        sharepoint_list_directory = site.List('dushanbe_api_testing')
 
         sharepoint_data = [
             {
-                "Bill Name": work_submission_obj.bill.bill_name,
-                "Type Name": work_submission_obj.type.type_name,
-                "Material Name": work_submission_obj.material.material_name,
-                "Submission Date": work_submission_obj.submission_date,
-                "Work Progress": work_submission_obj.work_progress,
-                # "CreatedBy": work_submission_obj.created_by.username,
-                # "Active Status": work_submission_obj.active_status
+                "bill": work_submission_obj.bill.bill_name,
+                "type": work_submission_obj.type.type_name,
+                "material": work_submission_obj.material.material_name,
+                "serial_no": work_submission_obj.material.serial_no,
+                "unit": work_submission_obj.material.unit,
+                "quantity": work_submission_obj.material.quantity,
+                "submission_date": work_submission_obj.submission_date,
+                "work_progress": work_submission_obj.work_progress,
+                "created_by": work_submission_obj.created_by.username,
+                "active_status": work_submission_obj.active_status
             }
         ]
 
-        sharepoint_obj = sharepoint_list_directory.UpdateListItems(data=sharepoint_data, kind='New')
-        print('--sharepoint_obj--', sharepoint_obj)
+        sharepoint_list_directory.UpdateListItems(data=sharepoint_data, kind='New')
         # SharePoint config end
 
         headers = self.get_success_headers(serializer.data)
