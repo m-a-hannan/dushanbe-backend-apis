@@ -70,3 +70,9 @@ ls
 ```
 exit
 ```
+
+##### Access Heroku PostgreSQL Database
+
+```
+heroku pg:credentials:url --app dushanbe-backend-apis
+```
