@@ -2,6 +2,7 @@ from django.urls import path
 from rest_framework import routers
 from dushanbe_auth.views.user_views import Login, Logout
 from dushanbe_auth.views.token_views import TokenReadOnlyModelViewSet
+from dushanbe_auth.views.group_views import GroupReadOnlyModelViewSet
 from dushanbe_auth.views.permission_views import PermissionReadOnlyModelViewSet
 
 
@@ -13,6 +14,9 @@ dushanbe_auth_router = routers.DefaultRouter()
 # List (GET): http://127.0.0.1:8000/api/tokens/
 dushanbe_auth_router.register('tokens', TokenReadOnlyModelViewSet)
 
+""" Group Routers """
+# List (GET): http://127.0.0.1:8000/api/groups/
+dushanbe_auth_router.register('groups', GroupReadOnlyModelViewSet)
 
 """ Permission Routers """
 # List (GET): http://127.0.0.1:8000/api/permissions/

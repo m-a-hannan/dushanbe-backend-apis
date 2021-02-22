@@ -18,6 +18,7 @@ class Login(ObtainAuthToken):
         user = serializer.validated_data['user']
         token, created = Token.objects.get_or_create(user=user)
         login_response_serializer = UserLoginResponseSerializer(user)
+        groups = login_response_serializer.data['groups']
         user_permissions = login_response_serializer.data['user_permissions']
 
         return Response(
@@ -29,6 +30,7 @@ class Login(ObtainAuthToken):
                 "active_status": user.is_active,
                 "superuser_status": user.is_superuser,
                 "token": token.key,
+                "groups": groups,
                 "user_permissions": user_permissions
             },
             status=status.HTTP_200_OK
