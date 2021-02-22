@@ -120,7 +120,7 @@ DATABASES = {
 }
 
 
-# SQLite3 config
+# # SQLite3 config
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',

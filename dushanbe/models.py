@@ -44,7 +44,7 @@ class Material(models.Model):
 
     class Meta:
         verbose_name_plural = 'Materials'
-        unique_together = ['type', 'material_name']
+        # unique_together = ['type', 'material_name']
 
     def __str__(self):
         return self.material_name
